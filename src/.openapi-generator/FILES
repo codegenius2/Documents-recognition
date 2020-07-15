@@ -20,7 +20,6 @@ models/extended-rfid-text-field.ts
 models/extended-text-field.ts
 models/extended-visual-text-field-all-of.ts
 models/extended-visual-text-field.ts
-models/field-source.ts
 models/graphic-field-type.ts
 models/graphic-field.ts
 models/graphic-fields-list.ts

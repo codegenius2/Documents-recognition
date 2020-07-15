@@ -21,6 +21,7 @@ import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
 import { RawImageResult } from './raw-image-result';
 import { RfidTextDataResult } from './rfid-text-data-result';
+import { TextResult } from './text-result';
 import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
 /**
@@ -31,10 +32,10 @@ import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 export interface ContainerList {
     /**
      * 
-     * @type {Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>}
+     * @type {Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextResult>}
      * @memberof ContainerList
      */
-    List: Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>;
+    List: Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextResult>;
 }
 
 

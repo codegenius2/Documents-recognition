@@ -17,7 +17,6 @@ export * from './extended-rfid-text-field-all-of';
 export * from './extended-text-field';
 export * from './extended-visual-text-field';
 export * from './extended-visual-text-field-all-of';
-export * from './field-source';
 export * from './graphic-field';
 export * from './graphic-field-type';
 export * from './graphic-fields-list';

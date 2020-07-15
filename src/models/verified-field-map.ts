@@ -30,6 +30,12 @@ export interface VerifiedFieldMap {
      */
     wFieldType?: TextFieldType;
     /**
+     * 
+     * @type {LCID}
+     * @memberof VerifiedFieldMap
+     */
+    wLCID?: LCID;
+    /**
      * Field data extracted from mrz(machine readable zone)
      * @type {string}
      * @memberof VerifiedFieldMap
@@ -59,12 +65,6 @@ export interface VerifiedFieldMap {
      * @memberof VerifiedFieldMap
      */
     Matrix?: Array<VerificationResult>;
-    /**
-     * 
-     * @type {LCID}
-     * @memberof VerifiedFieldMap
-     */
-    wLCID?: LCID;
 }
 
 
