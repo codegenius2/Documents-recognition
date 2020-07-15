@@ -1,0 +1,6 @@
+{
+  "withSeparateModelsAndApi": true,
+  "apiPackage": "api",
+  "modelPackage": "models",
+  "legacyDiscriminatorBehavior": false
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "target": "es5",
+    "module": "ES2015",
+    "outDir": "dist/esm-es5",
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "lib": [
+      "es5",
+      "es2015.promise"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

@@ -1,0 +1,8 @@
+src/.openapi-generator
+src/.openapi-generator-ignore
+tsconfig.commonjs.json
+ts-generator-config.json
+.idea/
+node_modules
+.gitignore
+.eslintrc

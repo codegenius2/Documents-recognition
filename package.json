@@ -1,0 +1,33 @@
+{
+  "name": "@regulaforensics/document-reader-client",
+  "version": "5.1.1",
+  "description": "OpenAPI client for rf-docreader",
+  "author": "OpenAPI-Generator Contributors",
+  "keywords": [
+    "document-reader-client",
+    "regulaforensics"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/cjs-es5/index.js",
+  "module": "./dist/esm-es5/index.js",
+  "typings": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build-cjs": "tsc --project tsconfig.commonjs.json",
+    "build-esm": "tsc --project tsconfig.esm.json",
+    "format": "eslint --fix ./src --ext .ts",
+    "build": "npm run clean && npm run format && npm run build-cjs && npm run build-esm"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "base64-arraybuffer": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.5",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-unused-imports": "^0.1.3",
+    "typescript": "^3.6.4"
+  }
+}

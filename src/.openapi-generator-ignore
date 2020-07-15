@@ -1,0 +1,12 @@
+.gitignore
+.npmignore
+package.json
+tsconfig.*
+README.md
+git_push.sh
+api.ts
+
+# remove after fix of https://github.com/OpenAPITools/openapi-generator/issues/6423
+index.ts
+
+
