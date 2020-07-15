@@ -1,4 +1,4 @@
-import {ResultItem} from "../models";
+import {ResultItem} from "../models/index.js";
 
 
 export class BaseResultItem implements ResultItem {

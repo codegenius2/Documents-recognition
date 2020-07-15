@@ -7,8 +7,8 @@ import {
     RfidLocation,
     TextResult,
     TransactionInfo
-} from "../models";
-import {Text} from "./text";
+} from "../models/index.js";
+import {Text} from "./text.js";
 
 
 export class Response {

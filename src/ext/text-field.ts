@@ -5,7 +5,7 @@ import {
     TextField as BaseTextField,
     TextFieldType,
     TextFieldValue
-} from "../models";
+} from "../models/index.js";
 
 export class TextField implements BaseTextField {
 

@@ -1,5 +1,5 @@
-import {ProcessParams} from "../models";
-import {ProcessRequestImage} from "./process-request-image";
+import {ProcessParams} from "../models/index.js";
+import {ProcessRequestImage} from "./process-request-image.js";
 
 export type Base64String = string;
 

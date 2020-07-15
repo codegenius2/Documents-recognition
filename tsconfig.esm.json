@@ -6,6 +6,7 @@
     "outDir": "dist/esm-es5",
     "moduleResolution": "node",
     "inlineSourceMap": true,
+    "esModuleInterop": true,
     "lib": [
       "es5",
       "es2015.promise"

@@ -6,6 +6,7 @@
     "outDir": "dist/cjs-es5",
     "inlineSourceMap": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "lib": [
       "es5",
       "es2015.promise"

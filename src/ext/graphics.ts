@@ -1,5 +1,5 @@
-import {BaseResultItem} from "./result-item";
-import {GraphicFieldsList, GraphicFieldType, GraphicsResult, RawImageContainer} from "../models";
+import {BaseResultItem} from "./result-item.js";
+import {GraphicFieldsList, GraphicFieldType, GraphicsResult, RawImageContainer} from "../models/index.js";
 
 
 export class Graphics extends BaseResultItem implements GraphicsResult {

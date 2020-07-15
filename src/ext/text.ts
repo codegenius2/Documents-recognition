@@ -4,8 +4,8 @@ import {
      
     Text as BaseText,
     TextFieldType
-} from "../models";
-import {TextField} from "./text-field";
+} from "../models/index.js";
+import {TextField} from "./text-field.js";
 
 
 export class Text implements BaseText {
