@@ -8,6 +8,10 @@
 
 Documents recognition as easy as reading two bytes.
 
+If you have any problems with or questions about this client, please contact us
+through a [GitHub issue](https://github.com/regulaforensics/DocumentReader-api-js-client/issues).
+You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-api-js-clien/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small; We are always thrilled to receive pull requests, and do our best to process them as fast as we can.
+
 ## Install package
 
 ```
@@ -37,6 +41,7 @@ const dateOfBirth = result.getTextField(DATE_OF_BIRTH)
 const portraitAsBase64 = result.getGraphicsField(PORTRAIT)
 const signatureAsBase64 = result.getGraphicsField(SIGNATURE)
 ```
+
 ## Compatibility
 
 Language level
@@ -51,17 +56,17 @@ Definitions
 
 ## Development
 
-Js client is written using typescript, based on [openapi spec](https://github.com/regulaforensics/DocumentReader-api-openapi). 
-Openapi-generator used as implementation base(see generated packages `/src/api`, `/scr/models`). 
-All custom logic, on top of generated files should be places in `/src/ext` folder.
+Js client is written using typescript, mainly generated from [openapi spec](https://github.com/regulaforensics/DocumentReader-api-openapi). 
+Openapi-generator output used as implementation base(see packages `/src/api`, `/scr/models`). 
+All custom logic, on top of generated files, should be places in `/src/ext` folder.
 
 To regenerate models from openapi definition, 
 clone [latest open api definitions](https://github.com/regulaforensics/DocumentReader-api-openapi)
-and set `DEFINITION_FOLDER` as path to cloned directory.
+and set `DEFINITION_FOLDER` as path to cloned directory, for example:
 ```bash
 DEFINITION_FOLDER="/home/user/projects/DocumentReader-api-openapi"
 ```
-Then use next command from the project root.
+Then use next command from the project root:
 ```bash
 docker run --rm -v "${PWD}:/client" -v "${DEFINITION_FOLDER}:/definitions" \
 openapitools/openapi-generator-cli generate -g typescript-axios \
