@@ -23,6 +23,7 @@ import { RawImageContainer } from './raw-image-container';
 import { RawImageResultAllOf } from './raw-image-result-all-of';
 import { ResultItem } from './result-item';
 import { RfidTextDataResult } from './rfid-text-data-result';
+import { StatusResult } from './status-result';
 import { TextResult } from './text-result';
 import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 

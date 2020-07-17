@@ -15,24 +15,23 @@
 
 import { BarcodeTextDataResult } from './barcode-text-data-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocVisualExtendedInfo } from './doc-visual-extended-info';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
-import { MrzOcrExtendedResultAllOf } from './mrz-ocr-extended-result-all-of';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
-import { StatusResult } from './status-result';
+import { RfidTextDataResult } from './rfid-text-data-result';
+import { Status } from './status';
+import { StatusResultAllOf } from './status-result-all-of';
 import { TextResult } from './text-result';
 import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
 /**
- * @type RfidTextDataResult
- * Text fields extracted from document RFID chip
+ * @type StatusResult
  * @export
  */
-export type RfidTextDataResult = MrzOcrExtendedResultAllOf & ResultItem;
+export type StatusResult = ResultItem & StatusResultAllOf;
 
 
 

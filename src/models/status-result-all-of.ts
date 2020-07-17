@@ -13,6 +13,20 @@
  */
 
 
+import { Status } from './status';
 
-export * from './ext/document-reader';
+/**
+ * 
+ * @export
+ * @interface StatusResultAllOf
+ */
+export interface StatusResultAllOf {
+    /**
+     * 
+     * @type {Status}
+     * @memberof StatusResultAllOf
+     */
+    Status: Status;
+}
+
 

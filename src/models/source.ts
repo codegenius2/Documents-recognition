@@ -20,10 +20,10 @@
  * @enum {string}
  */
 export enum Source {
-    MRZ = 3,
-    VISUAL = 17,
-    BARCODE = 18,
-    RFID = 102
+    MRZ = 'MRZ',
+    VISUAL = 'VISUAL',
+    BARCODE = 'BARCODE',
+    RFID = 'RFID'
 }
 
 

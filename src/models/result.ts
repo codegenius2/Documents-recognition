@@ -21,6 +21,7 @@
  */
 export enum Result {
     RAW_IMAGE = 1,
+    STATUS = 33,
     TEXT = 36,
     MRZ_TEXT = 3,
     VISUAL_TEXT = 17,

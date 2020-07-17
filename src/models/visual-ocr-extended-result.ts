@@ -24,6 +24,7 @@ import { MrzOcrExtendedResultAllOf } from './mrz-ocr-extended-result-all-of';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
 import { RfidTextDataResult } from './rfid-text-data-result';
+import { StatusResult } from './status-result';
 import { TextResult } from './text-result';
 
 /**

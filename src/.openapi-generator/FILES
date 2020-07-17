@@ -1,4 +1,3 @@
-api/default-api.ts
 base.ts
 configuration.ts
 models/available-source.ts
@@ -8,6 +7,8 @@ models/chosen-document-type-result-all-of.ts
 models/chosen-document-type-result.ts
 models/container-list.ts
 models/cross-source-value-comparison.ts
+models/details-optical.ts
+models/details-rfid.ts
 models/doc-visual-extended-info.ts
 models/document-format.ts
 models/document-type-recognition-result.ts
@@ -51,6 +52,9 @@ models/rfid-text-data-result.ts
 models/scenario.ts
 models/source-validity.ts
 models/source.ts
+models/status-result-all-of.ts
+models/status-result.ts
+models/status.ts
 models/string-recognition-result.ts
 models/symbol-candidate.ts
 models/symbol-recognition-result.ts

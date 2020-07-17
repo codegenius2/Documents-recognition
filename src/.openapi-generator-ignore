@@ -4,6 +4,7 @@ package.json
 tsconfig.*
 README.md
 git_push.sh
+api.ts
 
 # import of custom models here
 index.ts

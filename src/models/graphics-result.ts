@@ -23,6 +23,7 @@ import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
 import { RfidTextDataResult } from './rfid-text-data-result';
+import { StatusResult } from './status-result';
 import { TextResult } from './text-result';
 import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
