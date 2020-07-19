@@ -12,10 +12,12 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     images: [raw_image],
     processParam: {
       scenario: Scenario.FULL_PROCESS,
-      resultTypeOutput: [Result.TEXT, Result.LEXICAL_ANALYSIS]
+      resultTypeOutput: [Result.STATUS, Result.TEXT, Result.LEXICAL_ANALYSIS]
     }
   })
 
+  const docOverallStatus = response.status.complete;
+  const docOpticalTextStatus = response.status.detailsOptical.text;
 
   const docNumberField = response.text.getField(DOCUMENT_NUMBER);
   const docNumberVisual = docNumberField.getValue(Source.VISUAL)
@@ -25,6 +27,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const docNumberMrzVisualMatching = docNumberField.crossSourceComparison(Source.MRZ, Source.VISUAL)
 
   console.log("-----------------------------------------------------------------")
+  console.log(`           Document Overall Status: ${docOverallStatus}`)
   console.log(`            Document Number Visual: ${docNumberVisual}`)
   console.log(`               Document Number MRZ: ${docNumberMrz}`)
   console.log(`Validity Of Document Number Visual: ${docNumberVisualValidity}`)

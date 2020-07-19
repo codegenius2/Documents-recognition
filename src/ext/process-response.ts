@@ -1,10 +1,10 @@
 import {
-    ContainerList, 
+    ContainerList,
     ProcessingStatus,
     ProcessResponse,
     Result,
     ResultItem,
-    RfidLocation,
+    RfidLocation, Status, StatusResult,
     TextResult,
     TransactionInfo
 } from "../models/index.js";
@@ -18,6 +18,7 @@ export class Response {
     // - status
     // - authenticity
     // - document
+    status?: Status
     text?: Text
 
     lowLvlResponse: LowLvlResponse
@@ -31,6 +32,7 @@ export class Response {
         if (textResult) {
             this.text = new Text(textResult.Text)
         }
+        this.status = lowLvlResponse.statusResult()?.Status
     }
 }
 
@@ -50,6 +52,10 @@ export class LowLvlResponse implements ProcessResponse {
 
     public textResult(): TextResult | undefined {
         return <TextResult>this.resultByType(Result.TEXT)
+    }
+
+    public statusResult(): StatusResult | undefined {
+        return <StatusResult>this.resultByType(Result.STATUS)
     }
 
     public resultByType(type: Result): ResultItem | undefined {
