@@ -15,7 +15,7 @@
 
 
 /**
- * Language id. Used to difference same typed fields declared in several languages. For example: name can be provided in both native and latin variants. Locale id assigned by Microsoft. 
+ * Locale id. Used to tag same typed fields declared in several languages. For example: name can be provided in both native and latin variants. Based on Microsoft locale id (https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f). 
  * @export
  * @enum {string}
  */

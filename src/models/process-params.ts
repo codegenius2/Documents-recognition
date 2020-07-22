@@ -29,7 +29,7 @@ export interface ProcessParams {
      */
     scenario: Scenario;
     /**
-     * Types of results to extract. See \'Result\' enum for available options.
+     * Types of results to return in response. See \'Result\' enum for available options.
      * @type {Array<Result>}
      * @memberof ProcessParams
      */

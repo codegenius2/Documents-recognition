@@ -14,21 +14,22 @@
 
 
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocumentTypesCandidatesList } from './document-types-candidates-list';
-import { DocumentTypesCandidatesResultAllOf } from './document-types-candidates-result-all-of';
+import { DocVisualExtendedInfo } from './doc-visual-extended-info';
+import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
-import { TextDataResult } from './text-data-result';
+import { TextDataResultAllOf } from './text-data-result-all-of';
 import { TextResult } from './text-result';
 
 /**
- * @type DocumentTypesCandidatesResult
+ * @type TextDataResult
+ * Text fields extracted from one document source. Contains results of specific source for each provided page.
  * @export
  */
-export type DocumentTypesCandidatesResult = DocumentTypesCandidatesResultAllOf & ResultItem;
+export type TextDataResult = ResultItem & TextDataResultAllOf;
 
 
 

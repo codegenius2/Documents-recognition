@@ -24,7 +24,7 @@ import { DetailsRFID } from './details-rfid';
  */
 export interface Status {
     /**
-     * Overall checks status. Root status.
+     * 
      * @type {CheckResult}
      * @memberof Status
      */
@@ -40,25 +40,25 @@ export interface Status {
      * @type {CheckResult}
      * @memberof Status
      */
-    portrait: CheckResult;
+    portrait?: CheckResult;
     /**
      * 
      * @type {CheckResult}
      * @memberof Status
      */
-    rfid: CheckResult;
+    rfid?: CheckResult;
     /**
      * 
      * @type {CheckResult}
      * @memberof Status
      */
-    stopList: CheckResult;
+    stopList?: CheckResult;
     /**
      * 
      * @type {DetailsRFID}
      * @memberof Status
      */
-    detailsRFID: DetailsRFID;
+    detailsRFID?: DetailsRFID;
     /**
      * 
      * @type {DetailsOptical}

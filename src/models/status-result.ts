@@ -13,19 +13,16 @@
  */
 
 
-import { BarcodeTextDataResult } from './barcode-text-data-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
-import { RfidTextDataResult } from './rfid-text-data-result';
 import { Status } from './status';
 import { StatusResultAllOf } from './status-result-all-of';
+import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
-import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
 /**
  * @type StatusResult

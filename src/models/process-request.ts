@@ -15,6 +15,7 @@
 
 import { ProcessParams } from './process-params';
 import { ProcessRequestImage } from './process-request-image';
+import { ProcessSystemInfo } from './process-system-info';
 
 /**
  * 
@@ -34,6 +35,12 @@ export interface ProcessRequest {
      * @memberof ProcessRequest
      */
     List: Array<ProcessRequestImage>;
+    /**
+     * 
+     * @type {ProcessSystemInfo}
+     * @memberof ProcessRequest
+     */
+    systemInfo?: ProcessSystemInfo;
 }
 
 

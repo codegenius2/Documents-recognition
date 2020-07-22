@@ -1,4 +1,4 @@
-import {ProcessParams} from "../models/index.js";
+import {ProcessParams, ProcessSystemInfo} from "../models/index.js";
 import {ProcessRequestImage} from "./process-request-image.js";
 
 export type Base64String = string;
@@ -18,6 +18,13 @@ export interface ProcessRequest {
      * @memberof ProcessRequest
      */
     images: Array<ProcessRequestImage | ArrayBuffer | Base64String>;
+
+    /**
+     *
+     * @type {ProcessParams}
+     * @memberof ProcessRequest
+     */
+    systemInfo?: ProcessSystemInfo;
 }
 
 

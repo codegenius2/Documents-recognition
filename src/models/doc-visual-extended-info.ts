@@ -13,9 +13,7 @@
  */
 
 
-import { ExtendedRfidTextField } from './extended-rfid-text-field';
-import { ExtendedTextField } from './extended-text-field';
-import { ExtendedVisualTextField } from './extended-visual-text-field';
+import { DocVisualExtendedField } from './doc-visual-extended-field';
 
 /**
  * Container for extracted text fields. Fields are identified by type and language
@@ -25,10 +23,10 @@ import { ExtendedVisualTextField } from './extended-visual-text-field';
 export interface DocVisualExtendedInfo {
     /**
      * 
-     * @type {Array<ExtendedTextField | ExtendedVisualTextField | ExtendedRfidTextField>}
+     * @type {Array<DocVisualExtendedField>}
      * @memberof DocVisualExtendedInfo
      */
-    pArrayFields?: Array<ExtendedTextField | ExtendedVisualTextField | ExtendedRfidTextField>;
+    pArrayFields: Array<DocVisualExtendedField>;
 }
 
 

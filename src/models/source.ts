@@ -23,7 +23,8 @@ export enum Source {
     MRZ = 'MRZ',
     VISUAL = 'VISUAL',
     BARCODE = 'BARCODE',
-    RFID = 'RFID'
+    RFID = 'RFID',
+    MAGNETIC = 'MAGNETIC'
 }
 
 

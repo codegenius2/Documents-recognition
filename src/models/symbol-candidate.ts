@@ -15,23 +15,23 @@
 
 
 /**
- * Describes the result of recognizing an individual character in the string field of the document
+ * Describes an individual character recognition candidate
  * @export
  * @interface SymbolCandidate
  */
 export interface SymbolCandidate {
     /**
-     * ASCII symbol code
+     * Unicode symbol code
      * @type {number}
      * @memberof SymbolCandidate
      */
-    SymbolCode?: number;
+    SymbolCode: number;
     /**
      * character recognition probability (0–100,%)
      * @type {number}
      * @memberof SymbolCandidate
      */
-    SymbolProbability?: number;
+    SymbolProbability: number;
 }
 
 

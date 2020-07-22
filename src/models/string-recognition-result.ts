@@ -16,7 +16,7 @@
 import { SymbolRecognitionResult } from './symbol-recognition-result';
 
 /**
- * Describes recognizing a single row in multi-line text field of a document
+ * Describes single row recognition results in multi-line text field of a document
  * @export
  * @interface StringRecognitionResult
  */
@@ -26,7 +26,7 @@ export interface StringRecognitionResult {
      * @type {Array<SymbolRecognitionResult>}
      * @memberof StringRecognitionResult
      */
-    StringResult?: Array<SymbolRecognitionResult>;
+    StringResult: Array<SymbolRecognitionResult>;
 }
 
 

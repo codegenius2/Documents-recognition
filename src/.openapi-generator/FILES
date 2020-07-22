@@ -1,7 +1,6 @@
 base.ts
 configuration.ts
 models/available-source.ts
-models/barcode-text-data-result.ts
 models/check-result.ts
 models/chosen-document-type-result-all-of.ts
 models/chosen-document-type-result.ts
@@ -9,6 +8,7 @@ models/container-list.ts
 models/cross-source-value-comparison.ts
 models/details-optical.ts
 models/details-rfid.ts
+models/doc-visual-extended-field.ts
 models/doc-visual-extended-info.ts
 models/document-format.ts
 models/document-type-recognition-result.ts
@@ -16,11 +16,6 @@ models/document-type.ts
 models/document-types-candidates-list.ts
 models/document-types-candidates-result-all-of.ts
 models/document-types-candidates-result.ts
-models/extended-rfid-text-field-all-of.ts
-models/extended-rfid-text-field.ts
-models/extended-text-field.ts
-models/extended-visual-text-field-all-of.ts
-models/extended-visual-text-field.ts
 models/graphic-field-type.ts
 models/graphic-field.ts
 models/graphic-fields-list.ts
@@ -33,22 +28,19 @@ models/lexical-analysis-result-all-of.ts
 models/lexical-analysis-result.ts
 models/light.ts
 models/list-verified-fields.ts
-models/mrz-ocr-extended-result-all-of.ts
-models/mrz-ocr-extended-result.ts
 models/one-candidate.ts
 models/process-params.ts
 models/process-request-image.ts
 models/process-request.ts
 models/process-response.ts
+models/process-system-info.ts
 models/processing-status.ts
-models/raw-image-container.ts
 models/raw-image-result-all-of.ts
 models/raw-image-result.ts
 models/rectangle-coordinates.ts
 models/result-item.ts
 models/result.ts
 models/rfid-location.ts
-models/rfid-text-data-result.ts
 models/scenario.ts
 models/source-validity.ts
 models/source.ts
@@ -58,6 +50,8 @@ models/status.ts
 models/string-recognition-result.ts
 models/symbol-candidate.ts
 models/symbol-recognition-result.ts
+models/text-data-result-all-of.ts
+models/text-data-result.ts
 models/text-field-type.ts
 models/text-field-value.ts
 models/text-field.ts
@@ -68,4 +62,3 @@ models/tfdsidlist.ts
 models/transaction-info.ts
 models/verification-result.ts
 models/verified-field-map.ts
-models/visual-ocr-extended-result.ts

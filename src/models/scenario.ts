@@ -15,7 +15,7 @@
 
 
 /**
- * Scenario determines completeness of document processing
+ * Document processing scenario
  * @export
  * @enum {string}
  */

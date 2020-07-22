@@ -26,7 +26,7 @@ export interface GraphicFieldsList {
      * @type {Array<GraphicField>}
      * @memberof GraphicFieldsList
      */
-    pArrayFields?: Array<GraphicField>;
+    pArrayFields: Array<GraphicField>;
 }
 
 

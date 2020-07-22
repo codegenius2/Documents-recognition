@@ -13,17 +13,14 @@
  */
 
 
-import { BarcodeTextDataResult } from './barcode-text-data-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
 import { RawImageResult } from './raw-image-result';
-import { RfidTextDataResult } from './rfid-text-data-result';
 import { StatusResult } from './status-result';
+import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
-import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
 /**
  * list with result objects
@@ -33,10 +30,10 @@ import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 export interface ContainerList {
     /**
      * 
-     * @type {Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextResult | StatusResult>}
+     * @type {Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>}
      * @memberof ContainerList
      */
-    List: Array<RawImageResult | MrzOcrExtendedResult | GraphicsResult | LexicalAnalysisResult | VisualOcrExtendedResult | BarcodeTextDataResult | RfidTextDataResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextResult | StatusResult>;
+    List: Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>;
 }
 
 

@@ -15,7 +15,7 @@
 
 
 /**
- * 
+ * Coordinates of the rectangle region in the normalized image of the document.
  * @export
  * @interface RectangleCoordinates
  */
@@ -25,25 +25,25 @@ export interface RectangleCoordinates {
      * @type {number}
      * @memberof RectangleCoordinates
      */
-    top?: number;
+    left: number;
     /**
      * 
      * @type {number}
      * @memberof RectangleCoordinates
      */
-    bottom?: number;
+    top: number;
     /**
      * 
      * @type {number}
      * @memberof RectangleCoordinates
      */
-    left?: number;
+    right: number;
     /**
      * 
      * @type {number}
      * @memberof RectangleCoordinates
      */
-    right?: number;
+    bottom: number;
 }
 
 

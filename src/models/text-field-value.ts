@@ -22,19 +22,19 @@ import { Source } from './source';
  */
 export interface TextFieldValue {
     /**
-     * 
+     * Parsed/processed value. Date format converted for output, delimiters removed
      * @type {string}
      * @memberof TextFieldValue
      */
     value: string;
     /**
-     * 
+     * Original value as seen in the document
      * @type {string}
      * @memberof TextFieldValue
      */
     originalValue?: string;
     /**
-     * Index of image from input list
+     * Page index of the image from input list
      * @type {number}
      * @memberof TextFieldValue
      */
@@ -46,7 +46,7 @@ export interface TextFieldValue {
      */
     source: Source;
     /**
-     * Value correct recognition probability. Combined probability from single characters probabilities
+     * Min recognition probability. Combined minimum probability from single characters probabilities
      * @type {number}
      * @memberof TextFieldValue
      */

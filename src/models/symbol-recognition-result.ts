@@ -17,7 +17,7 @@ import { RectangleCoordinates } from './rectangle-coordinates';
 import { SymbolCandidate } from './symbol-candidate';
 
 /**
- * Describes the result of recognizing a single character in text field line
+ * Describes a single character recognition results in the text field line
  * @export
  * @interface SymbolRecognitionResult
  */
@@ -27,13 +27,13 @@ export interface SymbolRecognitionResult {
      * @type {RectangleCoordinates}
      * @memberof SymbolRecognitionResult
      */
-    SymbolRect?: RectangleCoordinates;
+    SymbolRect: RectangleCoordinates;
     /**
-     * Array of candidate characters. Sorted in decreasing order of recognition probabilities (the first element has highest probability)
+     * Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)
      * @type {Array<SymbolCandidate>}
      * @memberof SymbolRecognitionResult
      */
-    ListOfCandidates?: Array<SymbolCandidate>;
+    ListOfCandidates: Array<SymbolCandidate>;
 }
 
 

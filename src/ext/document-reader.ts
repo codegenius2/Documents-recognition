@@ -13,6 +13,8 @@ import converter from "base64-arraybuffer";
 
 export class DocumentReaderApi extends DefaultApi {
 
+  private license: string | undefined
+
   constructor(configuration?: Configuration, basePath: string = BASE_PATH, axios: AxiosInstance = globalAxios) {
     super(configuration, basePath, axios)
   }
@@ -32,9 +34,21 @@ export class DocumentReaderApi extends DefaultApi {
         resultTypeOutput: [Result.TEXT]
       }
     }
+    if (!processRequest.systemInfo) {
+      processRequest.systemInfo = {}
+    }
+    processRequest.systemInfo.license = this.license
 
     return super.apiProcess(requestToBaseRequest(processRequest), options)
       .then((axiosResult) => new Response(axiosResult.data));
+  }
+
+  public getLicense(): string | undefined {
+    return this.license
+  }
+
+  public setLicense(license: string): void {
+    this.license = license
   }
 }
 

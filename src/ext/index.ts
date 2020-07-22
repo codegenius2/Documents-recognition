@@ -1,5 +1,4 @@
 export * from './document-reader.js';
-export * from './graphics.js';
 export * from './process-request.js';
 export * from './process-request-image.js';
 export * from './process-response.js';

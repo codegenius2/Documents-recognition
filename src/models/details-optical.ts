@@ -52,7 +52,7 @@ export interface DetailsOptical {
      */
     mrz: CheckResult;
     /**
-     * 
+     * Number of processed pages in the document
      * @type {number}
      * @memberof DetailsOptical
      */

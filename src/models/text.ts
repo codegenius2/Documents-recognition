@@ -18,7 +18,7 @@ import { CheckResult } from './check-result';
 import { TextField } from './text-field';
 
 /**
- * Contains all document textual fields with validity and cross-source compare checks
+ * Contains all document text fields data with validity and cross-source compare checks
  * @export
  * @interface Text
  */

@@ -13,20 +13,20 @@
  */
 
 
-import { RawImageContainer } from './raw-image-container';
+import { ImageData } from './image-data';
 
 /**
- * raw image result (result_type 1)
+ * Returns cropped and rotated image of document. Most of coordinates in other types defined on that image
  * @export
  * @interface RawImageResultAllOf
  */
 export interface RawImageResultAllOf {
     /**
      * 
-     * @type {RawImageContainer}
+     * @type {ImageData}
      * @memberof RawImageResultAllOf
      */
-    RawImageContainer?: RawImageContainer;
+    RawImageContainer: ImageData;
 }
 
 

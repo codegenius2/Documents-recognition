@@ -15,15 +15,17 @@
 
 
 /**
- * Determines the presence and location of an RFID chip in a document
+ * 
  * @export
- * @enum {string}
+ * @interface ProcessSystemInfo
  */
-export enum RfidLocation {
-    NONE = 0,
-    MAIN_PAGE = 1,
-    BACK_PAGE = 2
+export interface ProcessSystemInfo {
+    /**
+     * Document reader license.
+     * @type {string}
+     * @memberof ProcessSystemInfo
+     */
+    license?: string;
 }
-
 
 

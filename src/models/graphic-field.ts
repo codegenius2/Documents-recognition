@@ -14,7 +14,7 @@
 
 
 import { GraphicFieldType } from './graphic-field-type';
-import { RawImageContainer } from './raw-image-container';
+import { ImageData } from './image-data';
 import { RectangleCoordinates } from './rectangle-coordinates';
 
 /**
@@ -25,22 +25,46 @@ import { RectangleCoordinates } from './rectangle-coordinates';
 export interface GraphicField {
     /**
      * 
+     * @type {GraphicFieldType}
+     * @memberof GraphicField
+     */
+    FieldType: GraphicFieldType;
+    /**
+     * 
+     * @type {ImageData}
+     * @memberof GraphicField
+     */
+    image: ImageData;
+    /**
+     * 
      * @type {RectangleCoordinates}
      * @memberof GraphicField
      */
     FieldRect?: RectangleCoordinates;
     /**
-     * 
-     * @type {GraphicFieldType}
+     * Information data group. Only for Result.RFID_TEXT results.
+     * @type {number}
      * @memberof GraphicField
      */
-    FieldType?: GraphicFieldType;
+    RFID_OriginDG?: number;
     /**
-     * 
-     * @type {RawImageContainer}
+     * Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_TEXT results.
+     * @type {number}
      * @memberof GraphicField
      */
-    image?: RawImageContainer;
+    RFID_OriginDGTag?: number;
+    /**
+     * Index of the text field record in information data group. Only for Result.RFID_TEXT results.
+     * @type {number}
+     * @memberof GraphicField
+     */
+    RFID_OriginTagEntry?: number;
+    /**
+     * Biometric sample variant index. Only for Result.RFID_TEXT results.
+     * @type {number}
+     * @memberof GraphicField
+     */
+    RFID_OriginEntryView?: number;
 }
 
 

@@ -13,17 +13,20 @@
  */
 
 
+import { DocVisualExtendedInfo } from './doc-visual-extended-info';
 
 /**
- * Determines the presence and location of an RFID chip in a document
+ * 
  * @export
- * @enum {string}
+ * @interface TextDataResultAllOf
  */
-export enum RfidLocation {
-    NONE = 0,
-    MAIN_PAGE = 1,
-    BACK_PAGE = 2
+export interface TextDataResultAllOf {
+    /**
+     * 
+     * @type {DocVisualExtendedInfo}
+     * @memberof TextDataResultAllOf
+     */
+    DocVisualExtendedInfo?: DocVisualExtendedInfo;
 }
-
 
 

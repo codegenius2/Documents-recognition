@@ -13,22 +13,20 @@
  */
 
 
-import { BarcodeTextDataResult } from './barcode-text-data-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicFieldsList } from './graphic-fields-list';
 import { GraphicsResultAllOf } from './graphics-result-all-of';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { MrzOcrExtendedResult } from './mrz-ocr-extended-result';
 import { RawImageResult } from './raw-image-result';
 import { ResultItem } from './result-item';
-import { RfidTextDataResult } from './rfid-text-data-result';
 import { StatusResult } from './status-result';
+import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
-import { VisualOcrExtendedResult } from './visual-ocr-extended-result';
 
 /**
  * @type GraphicsResult
+ * Graphics fields extracted from one the document source. Returns separate results for each provided page.
  * @export
  */
 export type GraphicsResult = GraphicsResultAllOf & ResultItem;
