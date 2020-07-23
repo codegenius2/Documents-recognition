@@ -26,6 +26,7 @@ export interface ProcessSystemInfo {
      * @memberof ProcessSystemInfo
      */
     license?: string;
+    recaptcha_token?: string;
 }
 
 
