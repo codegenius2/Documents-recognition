@@ -37,9 +37,13 @@ export class DocumentReaderApi extends DefaultApi {
     if (!processRequest.systemInfo) {
       processRequest.systemInfo = {}
     }
-    processRequest.systemInfo.license = this.license
+    
+    if (!processRequest.systemInfo.license && this.license) {
+      processRequest.systemInfo.license = this.license
+    }
 
-    return super.apiProcess(requestToBaseRequest(processRequest), options)
+    const baseRequest = requestToBaseRequest(processRequest)
+    return super.apiProcess(baseRequest, options)
       .then((axiosResult) => new Response(axiosResult.data));
   }
 
@@ -70,7 +74,8 @@ function requestToBaseRequest(request: ProcessRequest): ProcessRequestBase {
 
   return {
     processParam: request.processParam,
-    List: imageList
+    List: imageList,
+    systemInfo: request.systemInfo
   }
 }
 
