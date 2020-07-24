@@ -42,25 +42,25 @@ export interface GraphicField {
      */
     FieldRect?: RectangleCoordinates;
     /**
-     * Information data group. Only for Result.RFID_TEXT results.
+     * Source data group file. Only for Result.RFID_GRAPHICS result.
      * @type {number}
      * @memberof GraphicField
      */
     RFID_OriginDG?: number;
     /**
-     * Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_TEXT results.
+     * Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_GRAPHICS result.
      * @type {number}
      * @memberof GraphicField
      */
     RFID_OriginDGTag?: number;
     /**
-     * Index of the text field record in information data group. Only for Result.RFID_TEXT results.
+     * Index of the template in the record with biometric data. Only for Result.RFID_GRAPHICS result.
      * @type {number}
      * @memberof GraphicField
      */
     RFID_OriginTagEntry?: number;
     /**
-     * Biometric sample variant index. Only for Result.RFID_TEXT results.
+     * Index of the variant of the biometric data template. Only for Result.RFID_GRAPHICS result.
      * @type {number}
      * @memberof GraphicField
      */

@@ -15,7 +15,7 @@
 
 
 /**
- * image light index
+ * Image light index
  * @export
  * @enum {string}
  */

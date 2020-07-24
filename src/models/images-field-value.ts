@@ -13,7 +13,7 @@
  */
 
 
-import { OriginalSymbol } from './original-symbol';
+import { Light } from './light';
 import { RectangleCoordinates } from './rectangle-coordinates';
 import { RfidOrigin } from './rfid-origin';
 import { Source } from './source';
@@ -21,55 +21,55 @@ import { Source } from './source';
 /**
  * 
  * @export
- * @interface TextFieldValue
+ * @interface ImagesFieldValue
  */
-export interface TextFieldValue {
+export interface ImagesFieldValue {
     /**
      * 
      * @type {Source}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     source: Source;
     /**
-     * Parsed/processed value. Date format converted for output, delimiters removed
+     * Base64 encoded image
      * @type {string}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     value: string;
     /**
-     * Original value as seen in the document
+     * Base64 encoded image
      * @type {string}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     originalValue?: string;
     /**
-     * 
-     * @type {Array<OriginalSymbol>}
-     * @memberof TextFieldValue
-     */
-    originalSymbols?: Array<OriginalSymbol>;
-    /**
      * Page index of the image from input list
      * @type {number}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     pageIndex: number;
     /**
-     * Min recognition probability. Combined minimum probability from single characters probabilities
-     * @type {number}
-     * @memberof TextFieldValue
+     * 
+     * @type {Light}
+     * @memberof ImagesFieldValue
      */
-    probability?: number;
+    lightIndex: Light;
+    /**
+     * Same as Result type, but used for safe parsing of not-described values. See Result type.
+     * @type {number}
+     * @memberof ImagesFieldValue
+     */
+    containerType: number;
     /**
      * 
      * @type {RectangleCoordinates}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     fieldRect?: RectangleCoordinates;
     /**
      * 
      * @type {RfidOrigin}
-     * @memberof TextFieldValue
+     * @memberof ImagesFieldValue
      */
     rfidOrigin?: RfidOrigin;
 }

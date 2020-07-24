@@ -13,19 +13,20 @@
  */
 
 
+import { Images } from './images';
 
 /**
  * 
  * @export
- * @interface ImageData
+ * @interface ImagesResultAllOf
  */
-export interface ImageData {
+export interface ImagesResultAllOf {
     /**
-     * Base64 encoded image
-     * @type {string}
-     * @memberof ImageData
+     * 
+     * @type {Images}
+     * @memberof ImagesResultAllOf
      */
-    image: string;
+    Images: Images;
 }
 
 

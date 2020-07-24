@@ -13,25 +13,26 @@
  */
 
 
+import { Source } from './source';
 
 /**
  * 
  * @export
- * @interface ProcessSystemInfo
+ * @interface ImagesAvailableSource
  */
-export interface ProcessSystemInfo {
+export interface ImagesAvailableSource {
     /**
-     * Base64 encoded license file
-     * @type {string}
-     * @memberof ProcessSystemInfo
+     * Same as Result type, but used for safe parsing of not-described values. See Result type.
+     * @type {number}
+     * @memberof ImagesAvailableSource
      */
-    license?: string;
+    containerType?: number;
     /**
-     * For internal use. Demo-sites recaptcha token.
-     * @type {string}
-     * @memberof ProcessSystemInfo
+     * 
+     * @type {Source}
+     * @memberof ImagesAvailableSource
      */
-    recaptcha_token?: string;
+    source: Source;
 }
 
 

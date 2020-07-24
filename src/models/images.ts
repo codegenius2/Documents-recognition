@@ -13,25 +13,27 @@
  */
 
 
+import { ImagesAvailableSource } from './images-available-source';
+import { ImagesField } from './images-field';
 
 /**
  * 
  * @export
- * @interface ProcessSystemInfo
+ * @interface Images
  */
-export interface ProcessSystemInfo {
+export interface Images {
     /**
-     * Base64 encoded license file
-     * @type {string}
-     * @memberof ProcessSystemInfo
+     * 
+     * @type {Array<ImagesAvailableSource>}
+     * @memberof Images
      */
-    license?: string;
+    availableSourceList: Array<ImagesAvailableSource>;
     /**
-     * For internal use. Demo-sites recaptcha token.
-     * @type {string}
-     * @memberof ProcessSystemInfo
+     * 
+     * @type {Array<ImagesField>}
+     * @memberof Images
      */
-    recaptcha_token?: string;
+    fieldList: Array<ImagesField>;
 }
 
 

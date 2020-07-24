@@ -15,7 +15,7 @@
 
 
 /**
- * Describes possible extracted data types from documents
+ * Describes possible extracted result types from documents
  * @export
  * @enum {string}
  */
@@ -23,6 +23,7 @@ export enum Result {
     RAW_IMAGE = 1,
     STATUS = 33,
     TEXT = 36,
+    IMAGES = 37,
     MRZ_TEXT = 3,
     VISUAL_TEXT = 17,
     BARCODE_TEXT = 18,

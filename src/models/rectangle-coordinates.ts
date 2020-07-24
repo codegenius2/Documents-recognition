@@ -15,7 +15,7 @@
 
 
 /**
- * Coordinates of the rectangle region in the normalized image of the document.
+ * Coordinates of the rectangle region in the normalized image of the document
  * @export
  * @interface RectangleCoordinates
  */

@@ -1,6 +1,5 @@
 base.ts
 configuration.ts
-models/available-source.ts
 models/check-result.ts
 models/chosen-document-type-result-all-of.ts
 models/chosen-document-type-result.ts
@@ -22,6 +21,12 @@ models/graphic-fields-list.ts
 models/graphics-result-all-of.ts
 models/graphics-result.ts
 models/image-data.ts
+models/images-available-source.ts
+models/images-field-value.ts
+models/images-field.ts
+models/images-result-all-of.ts
+models/images-result.ts
+models/images.ts
 models/index.ts
 models/lcid.ts
 models/lexical-analysis-result-all-of.ts
@@ -29,6 +34,7 @@ models/lexical-analysis-result.ts
 models/light.ts
 models/list-verified-fields.ts
 models/one-candidate.ts
+models/original-symbol.ts
 models/process-params.ts
 models/process-request-image.ts
 models/process-request.ts
@@ -41,6 +47,7 @@ models/rectangle-coordinates.ts
 models/result-item.ts
 models/result.ts
 models/rfid-location.ts
+models/rfid-origin.ts
 models/scenario.ts
 models/source-validity.ts
 models/source.ts
@@ -50,6 +57,7 @@ models/status.ts
 models/string-recognition-result.ts
 models/symbol-candidate.ts
 models/symbol-recognition-result.ts
+models/text-available-source.ts
 models/text-data-result-all-of.ts
 models/text-data-result.ts
 models/text-field-type.ts

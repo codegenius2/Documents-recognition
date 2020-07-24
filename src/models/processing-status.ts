@@ -21,7 +21,8 @@
  */
 export enum ProcessingStatus {
     NOT_FINISHED = 0,
-    FINISHED = 1
+    FINISHED = 1,
+    TIMEOUT = 2
 }
 
 

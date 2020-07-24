@@ -13,8 +13,8 @@
  */
 
 
-import { AvailableSource } from './available-source';
 import { CheckResult } from './check-result';
+import { TextAvailableSource } from './text-available-source';
 import { TextField } from './text-field';
 
 /**
@@ -49,10 +49,10 @@ export interface Text {
     fieldList: Array<TextField>;
     /**
      * 
-     * @type {Array<AvailableSource>}
+     * @type {Array<TextAvailableSource>}
      * @memberof Text
      */
-    availableSourceList: Array<AvailableSource>;
+    availableSourceList: Array<TextAvailableSource>;
 }
 
 

@@ -16,6 +16,7 @@
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
+import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { RawImageResult } from './raw-image-result';
 import { StatusResult } from './status-result';
@@ -30,10 +31,10 @@ import { TextResult } from './text-result';
 export interface ContainerList {
     /**
      * 
-     * @type {Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>}
+     * @type {Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | ImagesResult>}
      * @memberof ContainerList
      */
-    List: Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult>;
+    List: Array<RawImageResult | TextResult | StatusResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | ImagesResult>;
 }
 
 

@@ -16,49 +16,20 @@
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
-import { ImagesResult } from './images-result';
+import { Images } from './images';
+import { ImagesResultAllOf } from './images-result-all-of';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { RawImageResult } from './raw-image-result';
+import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
 import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
 
 /**
- * Common fields for all result objects
+ * @type ImagesResult
  * @export
- * @interface ResultItem
  */
-export interface ResultItem {
-    /**
-     * 
-     * @type {number}
-     * @memberof ResultItem
-     */
-    buf_length?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ResultItem
-     */
-    light?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ResultItem
-     */
-    list_idx?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ResultItem
-     */
-    page_idx?: number;
-    /**
-     * Same as Result type, but used for safe parsing of not-described values. See Result type.
-     * @type {number}
-     * @memberof ResultItem
-     */
-    result_type: number;
-}
+export type ImagesResult = ImagesResultAllOf & ResultItem;
+
 
 

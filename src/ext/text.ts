@@ -1,5 +1,5 @@
 import {
-    AvailableSource,
+    TextAvailableSource as AvailableSource,
     CheckResult,
      
     Text as BaseText,
