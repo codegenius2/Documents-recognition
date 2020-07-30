@@ -1,6 +1,15 @@
 import * as fs from 'fs';
 
-import {DocumentReaderApi, Scenario, Result, TextFieldType, Source} from '@regulaforensics/document-reader-client/esm';
+import {
+  DocumentReaderApi,
+  Result,
+  Scenario,
+  Source,
+  TextFieldType,
+  GraphicFieldType
+} from '@regulaforensics/document-reader-client/esm';
+
+const {PORTRAIT} = GraphicFieldType;
 const {DOCUMENT_NUMBER} = TextFieldType;
 
 
@@ -17,19 +26,27 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     images: [raw_image],
     processParam: {
       scenario: Scenario.FULL_PROCESS,
-      resultTypeOutput: [Result.STATUS, Result.TEXT, Result.LEXICAL_ANALYSIS]
+      resultTypeOutput: [Result.RAW_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
     }
   })
 
   const docOverallStatus = response.status.complete;
   const docOpticalTextStatus = response.status.detailsOptical.text;
 
+  // text fields example
   const docNumberField = response.text.getField(DOCUMENT_NUMBER);
   const docNumberVisual = docNumberField.getValue(Source.VISUAL)
   const docNumberMrz = docNumberField.getValue(Source.MRZ)
   const docNumberVisualValidity = docNumberField.sourceValidity(Source.VISUAL)
   const docNumberMrzValidity = docNumberField.sourceValidity(Source.MRZ)
   const docNumberMrzVisualMatching = docNumberField.crossSourceComparison(Source.MRZ, Source.VISUAL)
+
+  // images example
+  const normalizedInputImage = response.images.getNormalizedInputImage()
+  const portraitField = response.images.getField(PORTRAIT)
+  const portraitFromVisual = portraitField.getValue(Source.VISUAL)
+  fs.appendFileSync('portraitFromVisual.jpg', Buffer.from(portraitFromVisual));
+  fs.appendFileSync('normalizedInputImage.jpg', Buffer.from(normalizedInputImage));
 
   console.log("-----------------------------------------------------------------")
   console.log(`           Document Overall Status: ${docOverallStatus}`)

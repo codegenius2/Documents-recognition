@@ -1,64 +1,81 @@
 import {
-    ContainerList,
-    ProcessingStatus,
-    ProcessResponse,
-    Result,
-    ResultItem,
-    RfidLocation, Status, StatusResult,
-    TextResult,
-    TransactionInfo
+  ContainerList, ImagesResult,
+  ProcessingStatus,
+  ProcessResponse, RawImageResult,
+  Result,
+  ResultItem,
+  RfidLocation, Status, StatusResult,
+  TextResult,
+  TransactionInfo
 } from "../models/index.js";
 import {Text} from "./text.js";
+import {Images} from "./images.js";
 
 
 export class Response {
 
-    // other modules:
-    // - images
-    // - status
-    // - authenticity
-    // - document
-    status?: Status
-    text?: Text
+  // other future modules:
+  // - authenticity
+  // - document
+  status?: Status
+  text?: Text
+  images?: Images
 
-    lowLvlResponse: LowLvlResponse
+  lowLvlResponse: LowLvlResponse
 
-    constructor(original: ProcessResponse) {
+  constructor(original: ProcessResponse) {
 
-        const lowLvlResponse = new LowLvlResponse(original)
-        this.lowLvlResponse = lowLvlResponse
+    const lowLvlResponse = new LowLvlResponse(original)
+    this.lowLvlResponse = lowLvlResponse
 
-        const textResult = lowLvlResponse.textResult()
-        if (textResult) {
-            this.text = new Text(textResult.Text)
-        }
-        this.status = lowLvlResponse.statusResult()?.Status
+    this.status = lowLvlResponse.statusResult()?.Status
+    const textResult = lowLvlResponse.textResult()
+    if (textResult) {
+      this.text = new Text(textResult.Text)
     }
+    const imagesResult = lowLvlResponse.imagesResult()
+    if (imagesResult) {
+      this.images = new Images(imagesResult.Images, lowLvlResponse.normalizedInputImages())
+    }
+  }
 }
 
 export class LowLvlResponse implements ProcessResponse {
 
-    ContainerList: ContainerList
-    ProcessingFinished: ProcessingStatus
-    TransactionInfo: TransactionInfo
-    ChipPage: RfidLocation
+  ContainerList: ContainerList
+  ProcessingFinished: ProcessingStatus
+  TransactionInfo: TransactionInfo
+  ChipPage: RfidLocation
 
-    constructor(original: ProcessResponse) {
-        this.ContainerList = original.ContainerList
-        this.ProcessingFinished = original.ProcessingFinished
-        this.TransactionInfo = original.TransactionInfo
-        this.ChipPage = original.ChipPage
-    }
+  constructor(original: ProcessResponse) {
+    this.ContainerList = original.ContainerList
+    this.ProcessingFinished = original.ProcessingFinished
+    this.TransactionInfo = original.TransactionInfo
+    this.ChipPage = original.ChipPage
+  }
 
-    public textResult(): TextResult | undefined {
-        return <TextResult>this.resultByType(Result.TEXT)
-    }
+  public normalizedInputImages(): Array<RawImageResult> | undefined {
+    // @ts-ignore
+    return this.resultsByType(Result.RAW_IMAGE)
+  }
 
-    public statusResult(): StatusResult | undefined {
-        return <StatusResult>this.resultByType(Result.STATUS)
-    }
+  public statusResult(): StatusResult | undefined {
+    return <StatusResult>this.resultByType(Result.STATUS)
+  }
 
-    public resultByType(type: Result): ResultItem | undefined {
-        return this.ContainerList.List.find(container => container.result_type === type)
-    }
+  public textResult(): TextResult | undefined {
+    return <TextResult>this.resultByType(Result.TEXT)
+  }
+
+  public imagesResult(): ImagesResult | undefined {
+    return <ImagesResult>this.resultByType(Result.IMAGES)
+  }
+
+  public resultByType(type: Result): ResultItem | undefined {
+    return this.ContainerList.List.find(container => container.result_type === type)
+  }
+
+  public resultsByType(type: Result): Array<ResultItem> | undefined {
+    return this.ContainerList.List.filter(container => container.result_type === type)
+  }
 }

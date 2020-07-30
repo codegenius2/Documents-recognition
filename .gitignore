@@ -3,3 +3,5 @@ node_modules
 typings
 dist
 .idea
+/example/portraitFromVisual.jpg
+/example/normalizedInputImage.jpg

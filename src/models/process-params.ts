@@ -15,6 +15,7 @@
 
 import { Result } from './result';
 import { Scenario } from './scenario';
+import { TextFieldType } from './text-field-type';
 
 /**
  * 
@@ -29,11 +30,47 @@ export interface ProcessParams {
      */
     scenario: Scenario;
     /**
-     * Types of results to return in response. See \'Result\' enum for available options.
+     * Types of results to return in response. See \'Result\' enum for available options
      * @type {Array<Result>}
      * @memberof ProcessParams
      */
     resultTypeOutput?: Array<Result>;
+    /**
+     * This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. By default is set to false.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    doublePageSpread?: boolean;
+    /**
+     * List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty.
+     * @type {Array<TextFieldType>}
+     * @memberof ProcessParams
+     */
+    fieldTypesFilter?: Array<TextFieldType>;
+    /**
+     * This option allows you to set dates format so that solution will return dates in this format. For example, if you supply \'MM/dd/yyyy\', and document have printed date \'09 JUL 2020\' for the date os issue, you will get \'07/09/2020\' as a result. By default it is set to system locale default (where the service is running).
+     * @type {string}
+     * @memberof ProcessParams
+     */
+    dateFormat?: string;
+    /**
+     * This option controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi.
+     * @type {number}
+     * @memberof ProcessParams
+     */
+    imageDpiOutMax?: number;
+    /**
+     * This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    alreadyCropped?: boolean;
+    /**
+     * This option allows to pass custom processing parameters that can be implemented in future without changing API.
+     * @type {{ [key: string]: object; }}
+     * @memberof ProcessParams
+     */
+    customParams?: { [key: string]: object; };
 }
 
 

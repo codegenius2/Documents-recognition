@@ -8,6 +8,7 @@ import {ProcessRequestImage as ProcessRequestImageBase} from "../models/index.js
 import {ProcessRequest} from "./process-request.js";
 import {ProcessRequestImage} from "./process-request-image.js";
 
+// @ts-ignore
 import converter from "base64-arraybuffer";
 
 

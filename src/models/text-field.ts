@@ -57,6 +57,12 @@ export interface TextField {
      */
     comparisonStatus: CheckResult;
     /**
+     * The most confidence value, selected from valueList
+     * @type {string}
+     * @memberof TextField
+     */
+    value: string;
+    /**
      * 
      * @type {Array<TextFieldValue>}
      * @memberof TextField
