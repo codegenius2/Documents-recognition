@@ -30,7 +30,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     }
   })
 
-  const docOverallStatus = response.status.complete;
+  const docOverallStatus = response.status.overallStatus;
   const docOpticalTextStatus = response.status.detailsOptical.text;
 
   // text fields example

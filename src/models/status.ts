@@ -28,7 +28,7 @@ export interface Status {
      * @type {CheckResult}
      * @memberof Status
      */
-    complete: CheckResult;
+    overallStatus: CheckResult;
     /**
      * 
      * @type {CheckResult}
