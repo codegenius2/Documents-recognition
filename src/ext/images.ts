@@ -2,7 +2,7 @@ import {
   GraphicFieldType,
   Images as BaseImages,
   ImagesField as BaseImagesField,
-  ImagesAvailableSource, ImagesFieldValue, Source, RawImageResult,
+  ImagesAvailableSource, ImagesFieldValue, Source
 } from "../models/index.js";
 
 // @ts-ignore
@@ -12,10 +12,8 @@ export class Images implements BaseImages {
 
   availableSourceList: Array<ImagesAvailableSource>;
   fieldList: Array<ImagesField>;
-  normalizedInputImages: Array<RawImageResult>;
 
-  constructor(origin: BaseImages, normalizedInputImages: Array<RawImageResult>) {
-    this.normalizedInputImages = normalizedInputImages;
+  constructor(origin: BaseImages) {
     this.availableSourceList = origin.availableSourceList
     this.fieldList = origin.fieldList.map(field => new ImagesField(field))
   }
@@ -24,12 +22,8 @@ export class Images implements BaseImages {
     return this.fieldList.find(field => field.fieldType == type)
   }
 
-  public getNormalizedInputImage(page = 0): ArrayBuffer | undefined {
-    const imageAsBase64 = this.normalizedInputImages.find(i=>i.page_idx==page)?.RawImageContainer?.image
-    if(imageAsBase64) {
-      return base64ToBuffer(imageAsBase64)
-    }
-    return undefined
+  public getFields(type: GraphicFieldType): Array<ImagesField> | undefined {
+    return this.fieldList.filter(field => field.fieldType == type)
   }
 }
 

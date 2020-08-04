@@ -1,27 +1,29 @@
 # Regula Document Reader js client for the browser and node.js based on axios
 
-[![npm version](https://img.shields.io/npm/v/@regulaforensics/document-reader-client?color=yellow&style=flat-square)](https://www.npmjs.org/package/@regulaforensics/document-reader-client)
+[![npm version](https://img.shields.io/npm/v/@regulaforensics/document-reader-webclient?color=yellow&style=flat-square)](https://www.npmjs.org/package/@regulaforensics/document-reader-webclient)
 ![npm type definitions](https://img.shields.io/npm/types/typescript?style=flat-square&collor=858df6)
 [![documentation](https://img.shields.io/badge/docs-en-f6858d?style=flat-square)](https://support.regulaforensics.com/hc/en-us/articles/115000916306-Documentation)
-[![OpenAPI](https://img.shields.io/badge/OpenAPI-defs-0a8c42?style=flat-square)](https://github.com/regulaforensics/DocumentReader-api-openapi)
-
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-defs-8c0a56?style=flat-square)](https://github.com/regulaforensics/DocumentReader-web-openapi)
+[![live](https://img.shields.io/badge/live-demo-0a8c42?style=flat-square)](https://api.regulaforensics.com/)
 
 Documents recognition as easy as reading two bytes.
 
 If you have any problems with or questions about this client, please contact us
 through a [GitHub issue](https://github.com/regulaforensics/DocumentReader-api-js-client/issues).
-You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-api-js-clien/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small; We are always thrilled to receive pull requests, and do our best to process them as fast as we can.
+You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-api-js-clien/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small; 
+We are always thrilled to receive pull requests, and do our best to process them as fast as we can.
+See [dev guide](./dev.md)
 
 ## Install package
 
 ```
-npm install @regulaforensics/document-reader-client
+npm install @regulaforensics/document-reader-webclient
 ```
 ## Example
 
 Performing request:
 ```js
-import {DocumentReaderApi, FieldType, GraphicFieldType} from '@regulaforensics/document-reader-client/esm'
+import {DocumentReaderApi, FieldType, GraphicFieldType} from '@regulaforensics/document-reader-webclient/esm'
 const {DOCUMENT_NUMBER, SURNAME_AND_GIVEN_NAMES, DATE_OF_BIRTH} = FieldType;
 const {PORTRAIT, SIGNATURE} = GraphicFieldType;
 
@@ -53,23 +55,3 @@ Module system
 
 Definitions
 * TypeScript's definitions should be automatically resolved via `package.json`. ([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
-
-## Development
-
-Js client is written using typescript, mainly generated from [openapi spec](https://github.com/regulaforensics/DocumentReader-api-openapi). 
-Openapi-generator output used as implementation base(see packages `/src/api`, `/scr/models`). 
-All custom logic, on top of generated files, should be places in `/src/ext` folder.
-
-To regenerate models from openapi definition, 
-clone [latest open api definitions](https://github.com/regulaforensics/DocumentReader-api-openapi)
-and set `DEFINITION_FOLDER` as path to cloned directory, for example:
-```bash
-DEFINITION_FOLDER="/home/user/projects/DocumentReader-api-openapi"
-```
-Then use next command from the project root:
-```bash
-docker run --rm -v "${PWD}:/client" -v "${DEFINITION_FOLDER}:/definitions" \
-openapitools/openapi-generator-cli generate -g typescript-axios \
--i /definitions/index.yml -o /client/src -c /client/ts-generator-config.json \
--t /client/generator-templates/
-```

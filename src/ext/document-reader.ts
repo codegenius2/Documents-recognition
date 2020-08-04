@@ -5,7 +5,7 @@ import {Configuration} from "../configuration.js";
 import globalAxios, {AxiosInstance} from "axios";
 import {BASE_PATH} from "../base.js";
 import {ProcessRequestImage as ProcessRequestImageBase} from "../models/index.js";
-import {ProcessRequest} from "./process-request.js";
+import {Base64String, ProcessRequest} from "./process-request.js";
 import {ProcessRequestImage} from "./process-request-image.js";
 
 // @ts-ignore
@@ -38,7 +38,7 @@ export class DocumentReaderApi extends DefaultApi {
     if (!processRequest.systemInfo) {
       processRequest.systemInfo = {}
     }
-    
+
     if (!processRequest.systemInfo.license && this.license) {
       processRequest.systemInfo.license = this.license
     }
@@ -48,12 +48,12 @@ export class DocumentReaderApi extends DefaultApi {
       .then((axiosResult) => new Response(axiosResult.data));
   }
 
-  public getLicense(): string | undefined {
-    return this.license
-  }
-
-  public setLicense(license: string): void {
-    this.license = license
+  public setLicense(license: ArrayBuffer | Base64String): void {
+    if (typeof license === "string") {
+      this.license = license
+    } else {
+      this.license = bufferToBase64String(license);
+    }
   }
 }
 

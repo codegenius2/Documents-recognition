@@ -7,9 +7,9 @@ import {
   Source,
   TextFieldType,
   GraphicFieldType
-} from '@regulaforensics/document-reader-client/esm';
+} from '@regulaforensics/document-reader-webclient/esm';
 
-const {PORTRAIT} = GraphicFieldType;
+const {PORTRAIT, DOCUMENT_FRONT} = GraphicFieldType;
 const {DOCUMENT_NUMBER} = TextFieldType;
 
 
@@ -26,7 +26,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     images: [raw_image],
     processParam: {
       scenario: Scenario.FULL_PROCESS,
-      resultTypeOutput: [Result.RAW_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
+      resultTypeOutput: [Result.STATUS, Result.TEXT, Result.IMAGES]
     }
   })
 
@@ -42,11 +42,11 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const docNumberMrzVisualMatching = docNumberField.crossSourceComparison(Source.MRZ, Source.VISUAL)
 
   // images example
-  const normalizedInputImage = response.images.getNormalizedInputImage()
+  const documentImage = response.images.getField(DOCUMENT_FRONT).getValue()
   const portraitField = response.images.getField(PORTRAIT)
   const portraitFromVisual = portraitField.getValue(Source.VISUAL)
-  fs.appendFileSync('portraitFromVisual.jpg', Buffer.from(portraitFromVisual));
-  fs.appendFileSync('normalizedInputImage.jpg', Buffer.from(normalizedInputImage));
+  fs.appendFileSync('portrait.jpg', Buffer.from(portraitFromVisual));
+  // waits fix fs.appendFileSync('document-image.jpg', Buffer.from(documentImage));
 
   console.log("-----------------------------------------------------------------")
   console.log(`           Document Overall Status: ${docOverallStatus}`)

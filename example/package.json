@@ -2,6 +2,6 @@
   "name": "@regulaforensics/document-reader-client-example",
   "type": "module",
   "dependencies": {
-    "@regulaforensics/document-reader-client": "file:.."
+    "@regulaforensics/document-reader-webclient": "file:.."
   }
 }

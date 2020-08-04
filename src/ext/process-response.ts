@@ -1,7 +1,7 @@
 import {
   ContainerList, ImagesResult,
   ProcessingStatus,
-  ProcessResponse, RawImageResult,
+  ProcessResponse,
   Result,
   ResultItem,
   RfidLocation, Status, StatusResult,
@@ -35,7 +35,7 @@ export class Response {
     }
     const imagesResult = lowLvlResponse.imagesResult()
     if (imagesResult) {
-      this.images = new Images(imagesResult.Images, lowLvlResponse.normalizedInputImages())
+      this.images = new Images(imagesResult.Images)
     }
   }
 }
@@ -52,11 +52,6 @@ export class LowLvlResponse implements ProcessResponse {
     this.ProcessingFinished = original.ProcessingFinished
     this.TransactionInfo = original.TransactionInfo
     this.ChipPage = original.ChipPage
-  }
-
-  public normalizedInputImages(): Array<RawImageResult> | undefined {
-    // @ts-ignore
-    return this.resultsByType(Result.RAW_IMAGE)
   }
 
   public statusResult(): StatusResult | undefined {
