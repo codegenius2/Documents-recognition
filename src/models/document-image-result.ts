@@ -13,24 +13,23 @@
  */
 
 
-import { ChosenDocumentTypeResultAllOf } from './chosen-document-type-result-all-of';
-import { DocumentImageResult } from './document-image-result';
+import { ChosenDocumentTypeResult } from './chosen-document-type-result';
+import { DocumentImageResultAllOf } from './document-image-result-all-of';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
+import { ImageData } from './image-data';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { OneCandidate } from './one-candidate';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
 import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
 
 /**
- * @type ChosenDocumentTypeResult
- * Contains information about the type of document that was determined based on the analysis of the provided image
+ * @type DocumentImageResult
  * @export
  */
-export type ChosenDocumentTypeResult = ChosenDocumentTypeResultAllOf & ResultItem;
+export type DocumentImageResult = DocumentImageResultAllOf & ResultItem;
 
 
 

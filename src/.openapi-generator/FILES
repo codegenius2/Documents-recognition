@@ -10,6 +10,8 @@ models/details-rfid.ts
 models/doc-visual-extended-field.ts
 models/doc-visual-extended-info.ts
 models/document-format.ts
+models/document-image-result-all-of.ts
+models/document-image-result.ts
 models/document-type-recognition-result.ts
 models/document-type.ts
 models/document-types-candidates-list.ts
@@ -41,8 +43,6 @@ models/process-request.ts
 models/process-response.ts
 models/process-system-info.ts
 models/processing-status.ts
-models/raw-image-result-all-of.ts
-models/raw-image-result.ts
 models/rectangle-coordinates.ts
 models/result-item.ts
 models/result.ts
