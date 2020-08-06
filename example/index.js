@@ -15,10 +15,11 @@ const {DOCUMENT_NUMBER} = TextFieldType;
 
 (async () => {
   let apiBasePath = process.env.API_BASE_PATH || "http://localhost:8080"
-  const license = process.env.TEST_LICENSE  // optional, used here only for smoke test purposes
+  let license = process.env.TEST_LICENSE  // optional, used here only for smoke test purposes
+  if (fs.existsSync('regula.license')) license = fs.readFileSync('regula.license')
 
   const api = new DocumentReaderApi({basePath: apiBasePath});
-  api.setLicense(license) // used here only for smoke test purposes, most of clients will attach license on server side
+  api.setLicense(license)
 
   const raw_image = fs.readFileSync('australia_passport.jpg').buffer
 
@@ -46,7 +47,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const portraitField = response.images.getField(PORTRAIT)
   const portraitFromVisual = portraitField.getValue(Source.VISUAL)
   fs.appendFileSync('portrait.jpg', Buffer.from(portraitFromVisual));
-  // waits fix fs.appendFileSync('document-image.jpg', Buffer.from(documentImage));
+  fs.appendFileSync('document-image.jpg', Buffer.from(documentImage));
 
   console.log("-----------------------------------------------------------------")
   console.log(`           Document Overall Status: ${docOverallStatus}`)
