@@ -71,6 +71,18 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     customParams?: { [key: string]: object; };
+    /**
+     * This option can be set to true if you need to get base64 string of transaction processing log.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    log?: boolean;
+    /**
+     * Force use of specific template ID and skip document type identification step.
+     * @type {number}
+     * @memberof ProcessParams
+     */
+    forceDocID?: number;
 }
 
 

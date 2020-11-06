@@ -33,6 +33,12 @@ export interface TextField {
      */
     fieldType: TextFieldType;
     /**
+     * Field name. Only use to search values for fields with fieldType=50(other). In general, use fieldType for lookup.
+     * @type {string}
+     * @memberof TextField
+     */
+    fieldName: string;
+    /**
      * 
      * @type {LCID}
      * @memberof TextField

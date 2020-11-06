@@ -31,6 +31,12 @@ export interface DocVisualExtendedField {
      */
     wFieldType: TextFieldType;
     /**
+     * Field name. Only use to search values for fields with fieldType=50(other). In general, use wFieldType for lookup.
+     * @type {string}
+     * @memberof DocVisualExtendedField
+     */
+    FieldName: string;
+    /**
      * 
      * @type {LCID}
      * @memberof DocVisualExtendedField

@@ -48,6 +48,12 @@ export interface ProcessResponse {
      * @memberof ProcessResponse
      */
     TransactionInfo: TransactionInfo;
+    /**
+     * Base64 encoded transaction processing log
+     * @type {string}
+     * @memberof ProcessResponse
+     */
+    log?: string;
 }
 
 

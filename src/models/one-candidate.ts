@@ -13,8 +13,8 @@
  */
 
 
+import { FDSIDList } from './fdsidlist';
 import { RfidLocation } from './rfid-location';
-import { TFDSIDList } from './tfdsidlist';
 
 /**
  * Contains information about one document type candidate
@@ -48,10 +48,10 @@ export interface OneCandidate {
     RFID_Presence?: RfidLocation;
     /**
      * 
-     * @type {TFDSIDList}
+     * @type {FDSIDList}
      * @memberof OneCandidate
      */
-    FDSIDList?: TFDSIDList;
+    FDSIDList?: FDSIDList;
     /**
      * Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document
      * @type {number}

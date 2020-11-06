@@ -7,6 +7,7 @@ models/container-list.ts
 models/cross-source-value-comparison.ts
 models/details-optical.ts
 models/details-rfid.ts
+models/device-info.ts
 models/doc-visual-extended-field.ts
 models/doc-visual-extended-info.ts
 models/document-format.ts
@@ -17,6 +18,7 @@ models/document-type.ts
 models/document-types-candidates-list.ts
 models/document-types-candidates-result-all-of.ts
 models/document-types-candidates-result.ts
+models/fdsidlist.ts
 models/graphic-field-type.ts
 models/graphic-field.ts
 models/graphic-fields-list.ts
@@ -66,7 +68,6 @@ models/text-field.ts
 models/text-result-all-of.ts
 models/text-result.ts
 models/text.ts
-models/tfdsidlist.ts
 models/transaction-info.ts
 models/verification-result.ts
 models/verified-field-map.ts

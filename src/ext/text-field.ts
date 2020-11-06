@@ -11,6 +11,7 @@ export class TextField implements BaseTextField {
 
   // see BaseTextField for docs
   fieldType: TextFieldType;
+  fieldName: string;
   lcid?: number;
 
   status: CheckResult;
@@ -24,6 +25,7 @@ export class TextField implements BaseTextField {
 
   constructor(origin: BaseTextField) {
     this.fieldType = origin.fieldType
+    this.fieldName = origin.fieldName
     this.lcid = origin.lcid
     this.status = origin.status
     this.validityStatus = origin.validityStatus
