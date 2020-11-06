@@ -1,7 +1,6 @@
 import {
     TextAvailableSource as AvailableSource,
     CheckResult,
-     
     Text as BaseText,
     TextFieldType
 } from "../models/index.js";
@@ -27,5 +26,25 @@ export class Text implements BaseText {
 
     public getField(type: TextFieldType, lcid?: number): TextField | undefined {
         return this.fieldList.find(field => field.fieldType == type && (!lcid || field.lcid == lcid))
+    }
+
+    public getFieldValue(type: TextFieldType, lcid?: number): string | undefined {
+        const field = this.getField(type, lcid)
+        if (field) {
+            return field.getValue()
+        }
+        return undefined
+    }
+
+    public getFieldByName(name: string, lcid?: number): TextField | undefined {
+        return this.fieldList.find(field => field.fieldName == name && (!lcid || field.lcid == lcid))
+    }
+
+    public getFieldValueByName(name: string, lcid?: number): string | undefined {
+        const field = this.getFieldByName(name, lcid)
+        if (field) {
+            return field.getValue()
+        }
+        return undefined
     }
 }
