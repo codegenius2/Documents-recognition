@@ -23,25 +23,25 @@ npm install @regulaforensics/document-reader-webclient
 
 Performing request:
 ```js
-import {DocumentReaderApi, FieldType, GraphicFieldType} from '@regulaforensics/document-reader-webclient/esm'
-const {DOCUMENT_NUMBER, SURNAME_AND_GIVEN_NAMES, DATE_OF_BIRTH} = FieldType;
-const {PORTRAIT, SIGNATURE} = GraphicFieldType;
+import {DocumentReaderApi, TextFieldType, GraphicFieldType} from '@regulaforensics/document-reader-webclient'
+const {DOCUMENT_NUMBER, SURNAME_AND_GIVEN_NAMES, DATE_OF_BIRTH} = TextFieldType
+const {PORTRAIT, SIGNATURE} = GraphicFieldType
 
 const imageAsBase64String = getDocImageAsBase64String()
-const api = new DocumentReaderApi({basePath: "http://localhost:8080"});
-const result = await api.process(imageAsBase64String)
+const api = new DocumentReaderApi({basePath: "http://localhost:8080"})
+const result = await api.process({images: [imageAsBase64String]})
 ```
 
 Parsing results:
 ```js
 // text fields
-const docNumber = result.getTextField(DOCUMENT_NUMBER)
-const fullName = result.getTextField(SURNAME_AND_GIVEN_NAMES)
-const dateOfBirth = result.getTextField(DATE_OF_BIRTH)
+const docNumber = result.text.getField(DOCUMENT_NUMBER)
+const fullName = result.text.getField(SURNAME_AND_GIVEN_NAMES)
+const dateOfBirth = result.text.getField(DATE_OF_BIRTH)
     
 // graphics fields
-const portraitAsBase64 = result.getGraphicsField(PORTRAIT)
-const signatureAsBase64 = result.getGraphicsField(SIGNATURE)
+const portraitAsBase64 = result.images.getField(PORTRAIT)
+const signatureAsBase64 = result.images.getField(SIGNATURE)
 ```
 
 ## Compatibility
