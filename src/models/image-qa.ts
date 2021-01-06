@@ -13,20 +13,25 @@
  */
 
 
-import { ImageData } from './image-data';
 
 /**
- * Contains cropped and rotated with perspective compensation image of document. Single input image can contain multiple document side/pages, which will be returned as separated results. Most of coordinates in other types defined on that image
+ * 
  * @export
- * @interface DocumentImageResultAllOf
+ * @interface ImageQA
  */
-export interface DocumentImageResultAllOf {
+export interface ImageQA {
     /**
-     * 
-     * @type {ImageData}
-     * @memberof DocumentImageResultAllOf
+     * This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.
+     * @type {number}
+     * @memberof ImageQA
      */
-    RawImageContainer: ImageData;
+    dpiThreshold?: number;
+    /**
+     * This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.
+     * @type {number}
+     * @memberof ImageQA
+     */
+    angleThreshold?: number;
 }
 
 

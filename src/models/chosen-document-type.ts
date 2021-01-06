@@ -19,61 +19,61 @@ import { RfidLocation } from './rfid-location';
 /**
  * Contains information about one document type candidate
  * @export
- * @interface OneCandidate
+ * @interface ChosenDocumentType
  */
-export interface OneCandidate {
+export interface ChosenDocumentType {
     /**
      * Document name
      * @type {string}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     DocumentName?: string;
     /**
      * Unique document type template identifier (Regula\'s internal numeric code)
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     ID?: number;
     /**
      * A measure of the likelihood of correct recognition in the analysis of this type of document
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     P?: number;
     /**
      * 
      * @type {RfidLocation}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     RFID_Presence?: RfidLocation;
     /**
      * 
      * @type {FDSIDList}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     FDSIDList?: FDSIDList;
     /**
      * Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     NecessaryLights?: number;
     /**
      * Set of authentication options provided for this type of document (combination of Authenticity enum)
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     CheckAuthenticity?: number;
     /**
      * The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     UVExp?: number;
     /**
      * Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity
      * @type {number}
-     * @memberof OneCandidate
+     * @memberof ChosenDocumentType
      */
     AuthenticityNecessaryLights?: number;
 }

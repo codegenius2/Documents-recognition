@@ -13,20 +13,27 @@
  */
 
 
-import { ImageData } from './image-data';
+import { DocumentTypeRecognitionResult } from './document-type-recognition-result';
+import { OneCandidate } from './one-candidate';
 
 /**
- * Contains cropped and rotated with perspective compensation image of document. Single input image can contain multiple document side/pages, which will be returned as separated results. Most of coordinates in other types defined on that image
+ * 
  * @export
- * @interface DocumentImageResultAllOf
+ * @interface DocumentTypesCandidates
  */
-export interface DocumentImageResultAllOf {
+export interface DocumentTypesCandidates {
     /**
      * 
-     * @type {ImageData}
-     * @memberof DocumentImageResultAllOf
+     * @type {DocumentTypeRecognitionResult}
+     * @memberof DocumentTypesCandidates
      */
-    RawImageContainer: ImageData;
+    RecResult?: DocumentTypeRecognitionResult;
+    /**
+     * 
+     * @type {Array<OneCandidate>}
+     * @memberof DocumentTypesCandidates
+     */
+    Candidates?: Array<OneCandidate>;
 }
 
 

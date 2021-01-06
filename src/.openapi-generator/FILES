@@ -1,8 +1,10 @@
+api/process-api.ts
 base.ts
 configuration.ts
 models/check-result.ts
 models/chosen-document-type-result-all-of.ts
 models/chosen-document-type-result.ts
+models/chosen-document-type.ts
 models/container-list.ts
 models/cross-source-value-comparison.ts
 models/details-optical.ts
@@ -13,11 +15,13 @@ models/doc-visual-extended-info.ts
 models/document-format.ts
 models/document-image-result-all-of.ts
 models/document-image-result.ts
+models/document-image.ts
 models/document-type-recognition-result.ts
 models/document-type.ts
 models/document-types-candidates-list.ts
 models/document-types-candidates-result-all-of.ts
 models/document-types-candidates-result.ts
+models/document-types-candidates.ts
 models/fdsidlist.ts
 models/graphic-field-type.ts
 models/graphic-field.ts
@@ -25,6 +29,7 @@ models/graphic-fields-list.ts
 models/graphics-result-all-of.ts
 models/graphics-result.ts
 models/image-data.ts
+models/image-qa.ts
 models/images-available-source.ts
 models/images-field-value.ts
 models/images-field.ts
