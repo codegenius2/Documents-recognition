@@ -31,7 +31,7 @@
     "build": "npm run clean && npm run format && npm run build-cjs && npm run build-esm && echo '{\"type\": \"commonjs\"}' > ./dist/cjs-es5/package.json"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "base64-arraybuffer": "^0.2.0"
   },
   "devDependencies": {
