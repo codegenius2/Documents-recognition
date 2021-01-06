@@ -46,12 +46,14 @@ export class LowLvlResponse implements ProcessResponse {
   ProcessingFinished: ProcessingStatus
   TransactionInfo: TransactionInfo
   ChipPage: RfidLocation
+  log?: string
 
   constructor(original: ProcessResponse) {
     this.ContainerList = original.ContainerList
     this.ProcessingFinished = original.ProcessingFinished
     this.TransactionInfo = original.TransactionInfo
     this.ChipPage = original.ChipPage
+    this.log = original.log
   }
 
   public statusResult(): StatusResult | undefined {
