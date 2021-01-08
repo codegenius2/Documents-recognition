@@ -1,4 +1,5 @@
 import {DefaultApi} from "../api/default-api.js";
+import {ProcessApi} from "../api/process-api.js";
 import {Light, ProcessRequest as ProcessRequestBase, Scenario, Result} from "../models/index.js";
 import {Response} from "./process-response.js";
 import {Configuration} from "../configuration.js";
@@ -12,12 +13,16 @@ import {ProcessRequestImage} from "./process-request-image.js";
 import converter from "base64-arraybuffer";
 
 
-export class DocumentReaderApi extends DefaultApi {
+export class DocumentReaderApi {
+
+  private readonly defaultApi: DefaultApi
+  private readonly processApi: ProcessApi
 
   private license: string | undefined
 
   constructor(configuration?: Configuration, basePath: string = BASE_PATH, axios: AxiosInstance = globalAxios) {
-    super(configuration, basePath, axios)
+    this.defaultApi = new DefaultApi(configuration, basePath, axios)
+    this.processApi = new ProcessApi(configuration, basePath, axios)
   }
 
   /**
@@ -44,7 +49,7 @@ export class DocumentReaderApi extends DefaultApi {
     }
 
     const baseRequest = requestToBaseRequest(processRequest)
-    return super.apiProcess(baseRequest, options)
+    return this.processApi.apiProcess(baseRequest, options)
       .then((axiosResult) => new Response(axiosResult.data));
   }
 

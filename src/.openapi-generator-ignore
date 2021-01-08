@@ -8,8 +8,3 @@ api.ts
 
 # import of custom models here
 index.ts
-
-# fix es6 imports https://github.com/Microsoft/TypeScript/issues/13422
-api/default-api.ts
-
-

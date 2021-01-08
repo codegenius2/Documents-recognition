@@ -1,6 +1,7 @@
 import {
   CheckResult,
-  CrossSourceValueComparison, Source,
+  CrossSourceValueComparison,
+  Source,
   SourceValidity,
   TextField as BaseTextField,
   TextFieldType,
@@ -56,7 +57,7 @@ export class TextField implements BaseTextField {
       return this.value;
     }
 
-    const value = this.valueList.find(value => value.source === source)
+    const value = this.getValueBySource(source)
     if (original) {
       return value?.originalValue
     }
@@ -68,26 +69,32 @@ export class TextField implements BaseTextField {
    * @param source See {@code Source}
    */
   public sourceValidity(source: Source): CheckResult {
-    const status = this.validityList.find(sv => sv.source === source)?.status;
-    return this.statusOrNotDone(status)
+    for (const validity of this.validityList) {
+      if (validity.source === source) {
+        return validity.status
+      }
+    }
+    return CheckResult.WAS_NOT_DONE
   }
 
   /**
-   * Returns result of value matching from different sources.
+   * Returns value matching result for different sources.
    */
   public crossSourceComparison(one: Source, other: Source): CheckResult {
-
-    const comparison = this.comparisonList.find(sv => {
-      return (sv.sourceLeft === one && sv.sourceRight === other)
-        || (sv.sourceLeft === other && sv.sourceRight === one);
-    })
-    return this.statusOrNotDone(comparison?.status)
+    for (const c of this.comparisonList) {
+      if ((c.sourceLeft === one && c.sourceRight === other) || (c.sourceLeft === other && c.sourceRight === one)) {
+        return c.status
+      }
+    }
+    return CheckResult.WAS_NOT_DONE
   }
 
-  /**
-   * Returns not done status in case of missing status value.
-   */
-  private statusOrNotDone(status: CheckResult | undefined): CheckResult {
-    return status === undefined ? CheckResult.WAS_NOT_DONE : status
+  private getValueBySource(source: Source): TextFieldValue | undefined {
+    for (const value of this.valueList) {
+      if (value.source == source) {
+        return value
+      }
+    }
+    return undefined
   }
 }

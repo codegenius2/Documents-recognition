@@ -19,7 +19,12 @@ export class Images implements BaseImages {
   }
 
   public getField(type: GraphicFieldType): ImagesField | undefined {
-    return this.fieldList.find(field => field.fieldType == type)
+    for (const field of this.fieldList) {
+      if (field.fieldType == type) {
+        return field
+      }
+    }
+    return undefined
   }
 
   public getFields(type: GraphicFieldType): Array<ImagesField> | undefined {
@@ -43,11 +48,10 @@ export class ImagesField implements BaseImagesField {
     let fieldValue
     if (!source) {
       // rfid -> visual -> barcode
-      fieldValue = this.valueList.find(v => v.source == Source.RFID)
-        || this.valueList.find(v => v.source == Source.VISUAL)
-        || this.valueList.find(v => v.source == Source.BARCODE)
+      fieldValue = this.getValueBySource(Source.RFID) || this.getValueBySource(Source.VISUAL)
+        || this.getValueBySource(Source.BARCODE)
     } else {
-      fieldValue = this.valueList.find(v => v.source == source)
+      fieldValue = this.getValueBySource(source)
     }
 
     if (!fieldValue) {
@@ -58,6 +62,15 @@ export class ImagesField implements BaseImagesField {
       return base64ToBuffer(fieldValue.originalValue)
     }
     return base64ToBuffer(fieldValue.value)
+  }
+
+  private getValueBySource(source: Source): ImagesFieldValue | undefined {
+    for (const value of this.valueList) {
+      if (value.source == source) {
+        return value
+      }
+    }
+    return undefined
   }
 }
 

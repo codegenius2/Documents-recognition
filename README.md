@@ -47,7 +47,8 @@ const signatureAsBase64 = result.images.getField(SIGNATURE)
 ## Compatibility
 
 Language level
-* ES5, ES6.Promises - depends on a native ES6 Promise implementation to be supported. If your environment doesn't support ES6 Promises, you can polyfill.
+* ES5 with some ES6 features [Promise] and whatwg **URL**. If your environment doesn't support ES6 required features, you can polyfill.
+* nodejs 10+
 
 Module system
 * CommonJS

@@ -69,7 +69,12 @@ export class LowLvlResponse implements ProcessResponse {
   }
 
   public resultByType(type: Result): ResultItem | undefined {
-    return this.ContainerList.List.find(container => container.result_type === type)
+    for (const container of this.ContainerList.List) {
+      if (container.result_type === type) {
+        return container
+      }
+    }
+    return undefined
   }
 
   public resultsByType(type: Result): Array<ResultItem> | undefined {
