@@ -10,6 +10,8 @@ import {
 } from "../models/index.js";
 import {Text} from "./text.js";
 import {Images} from "./images.js";
+// @ts-ignore
+import converter from "base64-arraybuffer";
 
 
 export class Response {
@@ -37,6 +39,11 @@ export class Response {
     if (imagesResult) {
       this.images = new Images(imagesResult.Images)
     }
+  }
+
+  public decodedLog(): string | undefined {
+    const log = this.lowLvlResponse.log
+    return log ? String.fromCharCode.apply(null, new Uint8Array(converter.decode(log))) : undefined;
   }
 }
 
