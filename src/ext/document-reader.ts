@@ -63,7 +63,7 @@ export class DocumentReaderApi {
 }
 
 
-function requestToBaseRequest(request: ProcessRequest): ProcessRequestBase {
+export function requestToBaseRequest(request: ProcessRequest): ProcessRequestBase {
 
   const imageList: Array<ProcessRequestImageBase> = []
 
