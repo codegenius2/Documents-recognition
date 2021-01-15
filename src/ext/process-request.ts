@@ -27,4 +27,6 @@ export interface ProcessRequest {
     systemInfo?: ProcessSystemInfo;
 }
 
-
+export const instanceOfProcessRequest = (data: any): data is ProcessRequest => {
+    return 'images' in data
+}

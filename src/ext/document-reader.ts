@@ -6,7 +6,7 @@ import {Configuration} from "../configuration.js";
 import globalAxios, {AxiosInstance} from "axios";
 import {BASE_PATH} from "../base.js";
 import {ProcessRequestImage as ProcessRequestImageBase} from "../models/index.js";
-import {Base64String, ProcessRequest} from "./process-request.js";
+import {Base64String, instanceOfProcessRequest, ProcessRequest} from "./process-request.js";
 import {ProcessRequestImage} from "./process-request-image.js";
 
 // @ts-ignore
@@ -32,23 +32,29 @@ export class DocumentReaderApi {
    * @param {*} [options] Override http request option.
    * @throws {RequiredError} If some request params are missed
    * */
-  process(processRequest: ProcessRequest, options?: any): Promise<Response> {
+  process(request: ProcessRequest | ProcessRequestBase, options?: any): Promise<Response> {
+    let baseRequest;
 
-    if (!processRequest.processParam) {
-      processRequest.processParam = {
-        scenario: Scenario.FULL_PROCESS,
-        resultTypeOutput: [Result.TEXT]
+    if (instanceOfProcessRequest(request)) {
+      if (!request.processParam) {
+        request.processParam = {
+          scenario: Scenario.FULL_PROCESS,
+          resultTypeOutput: [Result.TEXT]
+        }
       }
-    }
-    if (!processRequest.systemInfo) {
-      processRequest.systemInfo = {}
+      if (!request.systemInfo) {
+        request.systemInfo = {}
+      }
+
+      if (!request.systemInfo.license && this.license) {
+        request.systemInfo.license = this.license
+      }
+
+      baseRequest = requestToBaseRequest(request)
+    } else {
+      baseRequest = request
     }
 
-    if (!processRequest.systemInfo.license && this.license) {
-      processRequest.systemInfo.license = this.license
-    }
-
-    const baseRequest = requestToBaseRequest(processRequest)
     return this.processApi.apiProcess(baseRequest, options)
       .then((axiosResult) => new Response(axiosResult.data));
   }
