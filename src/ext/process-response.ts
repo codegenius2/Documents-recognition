@@ -50,7 +50,7 @@ export class Response {
       const step = 10000
       const result = []
       // To avoid maximum call stack size excess
-      for (let i = 0; i < uintArraySize; i + step) {
+      for (let i = 0; i < uintArraySize; i += step) {
         const chunk = String.fromCharCode.apply(null, uintArray.slice(i, i + step))
         result.push(chunk)
       }
