@@ -43,7 +43,21 @@ export class Response {
 
   public decodedLog(): string | undefined {
     const log = this.lowLvlResponse.log
-    return log ? String.fromCharCode.apply(null, new Uint8Array(converter.decode(log))) : undefined;
+    if (log) {
+      const decoded = converter.decode(log)
+      const uintArray = new Uint8Array(decoded)
+      const uintArraySize = uintArray.length
+      const step = 10000
+      const result = []
+      // To avoid maximum call stack size excess
+      for (let i = 0; i < uintArraySize; i += step) {
+        const chunk = String.fromCharCode.apply(null, uintArray.slice(i, i + step))
+        result.push(chunk)
+      }
+      return result.join('')
+    } else {
+      return undefined
+    }
   }
 }
 
