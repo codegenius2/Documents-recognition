@@ -24,5 +24,5 @@ jobs:
       - run: node --unhandled-rejections=strict index.js
         working-directory: ./example
         env:
-          API_BASE_PATH: "http://test-api.regulaforensics.com"
+          API_BASE_PATH: "https://testapi.regulaforensics.com"
           TEST_LICENSE: ${{secrets.TEST_LICENSE}}

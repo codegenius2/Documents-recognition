@@ -1,10 +1,14 @@
 import {
-  ContainerList, ImagesResult,
+  AuthenticityResult,
+  ContainerList,
+  ImagesResult,
   ProcessingStatus,
   ProcessResponse,
   Result,
   ResultItem,
-  RfidLocation, Status, StatusResult,
+  RfidLocation,
+  Status,
+  StatusResult,
   TextResult,
   TransactionInfo
 } from "../models/index.js";
@@ -12,6 +16,7 @@ import {Text} from "./text.js";
 import {Images} from "./images.js";
 // @ts-ignore
 import converter from "base64-arraybuffer";
+import {Authenticity} from "./authenticity/authenticity.js";
 
 
 export class Response {
@@ -41,6 +46,11 @@ export class Response {
     }
   }
 
+  public authenticity(page_idx = 0): Authenticity | undefined {
+    const r = <AuthenticityResult>this.lowLvlResponse.resultByTypeAndPage(Result.AUTHENTICITY, page_idx)
+    return new Authenticity(r.AuthenticityCheckList)
+  }
+
   public decodedLog(): string | undefined {
     const log = this.lowLvlResponse.log
     if (log) {
@@ -68,6 +78,7 @@ export class LowLvlResponse implements ProcessResponse {
   TransactionInfo: TransactionInfo
   ChipPage: RfidLocation
   log?: string
+  passBackObject?: { [key: string]: any; };
 
   constructor(original: ProcessResponse) {
     this.ContainerList = original.ContainerList
@@ -75,6 +86,7 @@ export class LowLvlResponse implements ProcessResponse {
     this.TransactionInfo = original.TransactionInfo
     this.ChipPage = original.ChipPage
     this.log = original.log
+    this.passBackObject = original.passBackObject
   }
 
   public statusResult(): StatusResult | undefined {
@@ -92,6 +104,15 @@ export class LowLvlResponse implements ProcessResponse {
   public resultByType(type: Result): ResultItem | undefined {
     for (const container of this.ContainerList.List) {
       if (container.result_type === type) {
+        return container
+      }
+    }
+    return undefined
+  }
+
+  public resultByTypeAndPage(type: Result, page_idx = 0): ResultItem | undefined {
+    for (const container of this.ContainerList.List) {
+      if (container.result_type === type && container.page_idx == page_idx) {
         return container
       }
     }

@@ -75,10 +75,10 @@ export function requestToBaseRequest(request: ProcessRequest): ProcessRequestBas
 
   request.images.forEach((image, index) => {
     if (typeof image === "string") {
-      imageList.push({ImageData: {'image': image}, LightIndex: Light.WHITE, page_idx: index});
+      imageList.push({ImageData: {'image': image}, light: Light.WHITE, page_idx: index});
     } else if (image instanceof ArrayBuffer) {
       const data = bufferToBase64String(image);
-      imageList.push({ImageData: {'image': data}, LightIndex: Light.WHITE, page_idx: index});
+      imageList.push({ImageData: {'image': data}, light: Light.WHITE, page_idx: index});
     } else {
       imageList.push(imageDataToBaseImageData(image, index))
     }
@@ -87,18 +87,23 @@ export function requestToBaseRequest(request: ProcessRequest): ProcessRequestBas
   return {
     processParam: request.processParam,
     List: imageList,
-    systemInfo: request.systemInfo
+    systemInfo: request.systemInfo,
+    passBackObject: request.passBackObject
   }
 }
 
-function imageDataToBaseImageData(image: ProcessRequestImage, pageId: number): ProcessRequestImageBase {
+function imageDataToBaseImageData(image: ProcessRequestImage, arrayIndex: number): ProcessRequestImageBase {
   let data: string
   if (typeof image.ImageData === "string") {
     data = image.ImageData
   } else {
     data = bufferToBase64String(image.ImageData)
   }
-  return {ImageData: {'image': data}, LightIndex: image.LightIndex, page_idx: image.page_idx || pageId}
+  return {
+    ImageData: {'image': data},
+    light: image.light,
+    page_idx: (typeof image.page_idx === 'undefined') ? arrayIndex : image.page_idx
+  }
 }
 
 function bufferToBase64String(buffer: ArrayBuffer): string {

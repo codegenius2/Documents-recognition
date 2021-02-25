@@ -6,7 +6,9 @@ import {
   Scenario,
   Source,
   TextFieldType,
-  GraphicFieldType
+  GraphicFieldType,
+  Light,
+  SecurityFeatureType
 } from '@regulaforensics/document-reader-webclient/esm';
 
 const {PORTRAIT, DOCUMENT_FRONT} = GraphicFieldType;
@@ -21,13 +23,33 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const api = new DocumentReaderApi({basePath: apiBasePath});
   api.setLicense(license)
 
-  const raw_image = fs.readFileSync('australia_passport.jpg').buffer
+  const white_page_0 = fs.readFileSync('WHITE.jpg').buffer
+  const ir_page_0 = fs.readFileSync('IR.jpg').buffer
+  const uv_page_0 = fs.readFileSync('UV.jpg').buffer
 
   const response = await api.process({
-    images: [raw_image],
+    images: [
+      {
+        ImageData: white_page_0, light: Light.WHITE, page_idx: 0
+      },
+      {
+        ImageData: ir_page_0, light: Light.IR, page_idx: 0
+      },
+      {
+        ImageData: uv_page_0, light: Light.UV, page_idx: 0
+      }
+    ],
     processParam: {
-      scenario: Scenario.FULL_PROCESS,
-      resultTypeOutput: [Result.STATUS, Result.TEXT, Result.IMAGES]
+      scenario: Scenario.FULL_AUTH,
+      resultTypeOutput: [
+          // actual results
+          Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+          Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+          // legacy results
+          Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+          Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+          Result.LEXICAL_ANALYSIS
+      ]
     }
   })
 
@@ -43,6 +65,14 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const docNumberVisualValidity = docNumberField.sourceValidity(Source.VISUAL)
   const docNumberMrzValidity = docNumberField.sourceValidity(Source.MRZ)
   const docNumberMrzVisualMatching = docNumberField.crossSourceComparison(Source.MRZ, Source.VISUAL)
+
+  const docAuthenticity = response.authenticity()
+
+  const docIrB900 = docAuthenticity.irB900Checks()
+  const docIrB900BlankChecks = docIrB900.checksByElement(SecurityFeatureType.BLANK)
+
+  const docImagePattern = docAuthenticity.imagePatternChecks()
+  const docImagePatternBlankChecks = docImagePattern.checksByElement(SecurityFeatureType.BLANK)
 
   // images example
   const documentImage = response.images.getField(DOCUMENT_FRONT).getValue()
