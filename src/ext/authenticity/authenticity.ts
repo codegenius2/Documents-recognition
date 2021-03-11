@@ -9,9 +9,11 @@ import {SecurityFeatureChecks} from "./security-feature.js";
 
 export class Authenticity implements BaseAuthenticityCheckList {
   List: Array<AuthenticityCheckResult>;
+  page_idx: number;
 
-  constructor(origin: BaseAuthenticityCheckList) {
+  constructor(origin: BaseAuthenticityCheckList, page_idx: number) {
     this.List = origin.List
+    this.page_idx = page_idx
   }
 
   public uvLuminescenceChecks(): SecurityFeatureChecks | undefined {

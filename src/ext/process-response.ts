@@ -48,7 +48,15 @@ export class Response {
 
   public authenticity(page_idx = 0): Authenticity | undefined {
     const r = <AuthenticityResult>this.lowLvlResponse.resultByTypeAndPage(Result.AUTHENTICITY, page_idx)
-    return new Authenticity(r.AuthenticityCheckList)
+    if (r) {
+      return new Authenticity(r.AuthenticityCheckList, page_idx)
+    }
+  }
+
+  public authenticityPerPage(): Array<Authenticity> {
+    return this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
+      .map((e: AuthenticityResult, i) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
+      .sort((a, b) => a.page_idx - b.page_idx)
   }
 
   public decodedLog(): string | undefined {
@@ -119,7 +127,7 @@ export class LowLvlResponse implements ProcessResponse {
     return undefined
   }
 
-  public resultsByType(type: Result): Array<ResultItem> | undefined {
+  public resultsByType(type: Result): Array<ResultItem> {
     return this.ContainerList.List.filter(container => container.result_type === type)
   }
 }
