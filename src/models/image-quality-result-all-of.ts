@@ -13,25 +13,20 @@
  */
 
 
-import { AuthenticityResult } from './authenticity-result';
-import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocumentImageResult } from './document-image-result';
-import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
-import { GraphicsResult } from './graphics-result';
-import { ImageQualityResult } from './image-quality-result';
-import { ImagesResult } from './images-result';
-import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { ResultItem } from './result-item';
-import { StatusResult } from './status-result';
-import { Text } from './text';
-import { TextDataResult } from './text-data-result';
-import { TextResultAllOf } from './text-result-all-of';
+import { ImageQualityCheckList } from './image-quality-check-list';
 
 /**
- * @type TextResult
+ * 
  * @export
+ * @interface ImageQualityResultAllOf
  */
-export type TextResult = ResultItem & TextResultAllOf;
-
+export interface ImageQualityResultAllOf {
+    /**
+     * 
+     * @type {ImageQualityCheckList}
+     * @memberof ImageQualityResultAllOf
+     */
+    ImageQualityCheckList: ImageQualityCheckList;
+}
 
 

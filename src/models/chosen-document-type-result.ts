@@ -18,6 +18,7 @@ import { ChosenDocumentTypeResultAllOf } from './chosen-document-type-result-all
 import { DocumentImageResult } from './document-image-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
+import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { OneCandidate } from './one-candidate';

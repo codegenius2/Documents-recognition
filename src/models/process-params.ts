@@ -122,6 +122,12 @@ export interface ProcessParams {
      */
     checkRequiredTextFields?: boolean;
     /**
+     * When enabled, returns cropped barcode images for unknown documents
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    returnCroppedBarcode?: boolean;
+    /**
      * 
      * @type {ImageQA}
      * @memberof ProcessParams

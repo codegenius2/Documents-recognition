@@ -13,25 +13,20 @@
  */
 
 
-import { AuthenticityResult } from './authenticity-result';
-import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocumentImageResult } from './document-image-result';
-import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
-import { GraphicsResult } from './graphics-result';
-import { ImageQualityResult } from './image-quality-result';
-import { ImagesResult } from './images-result';
-import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { ResultItem } from './result-item';
-import { StatusResult } from './status-result';
-import { Text } from './text';
-import { TextDataResult } from './text-data-result';
-import { TextResultAllOf } from './text-result-all-of';
+import { Point } from './point';
 
 /**
- * @type TextResult
+ * 
  * @export
+ * @interface PointArray
  */
-export type TextResult = ResultItem & TextResultAllOf;
-
+export interface PointArray {
+    /**
+     * 
+     * @type {Array<Point>}
+     * @memberof PointArray
+     */
+    PointsList?: Array<Point>;
+}
 
 

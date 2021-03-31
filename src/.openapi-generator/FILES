@@ -2,6 +2,7 @@ api/default-api.ts
 api/process-api.ts
 base.ts
 configuration.ts
+models/area-array.ts
 models/area-container.ts
 models/authenticity-check-list.ts
 models/authenticity-check-result-item.ts
@@ -44,6 +45,11 @@ models/ident-result-all-of.ts
 models/ident-result.ts
 models/image-data.ts
 models/image-qa.ts
+models/image-quality-check-list.ts
+models/image-quality-check-type.ts
+models/image-quality-check.ts
+models/image-quality-result-all-of.ts
+models/image-quality-result.ts
 models/images-available-source.ts
 models/images-field-value.ts
 models/images-field.ts
@@ -63,6 +69,7 @@ models/one-candidate.ts
 models/original-symbol.ts
 models/photo-ident-result-all-of.ts
 models/photo-ident-result.ts
+models/point-array.ts
 models/point.ts
 models/points-container.ts
 models/process-params.ts

@@ -22,6 +22,7 @@ sed -i '/import { DocumentTypesCandidatesResult } /d' ./src/models/document-type
 sed -i '/import { DocumentImageResult } /d' ./src/models/document-image-result.ts
 sed -i '/import { ChosenDocumentTypeResult } /d' ./src/models/chosen-document-type-result.ts
 sed -i '/import { AuthenticityResult } /d' ./src/models/authenticity-result.ts
+sed -i '/import { ImageQualityResult } /d' ./src/models/image-quality-result.ts
 
 
 sed -i "s+from '../models'+from '../models.js'+g" ./src/api/default-api.ts

@@ -44,7 +44,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
       resultTypeOutput: [
           // actual results
           Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-          Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+          Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
           // legacy results
           Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
           Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
@@ -80,6 +80,8 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const portraitFromVisual = portraitField.getValue(Source.VISUAL)
   fs.appendFileSync('portrait.jpg', Buffer.from(portraitFromVisual));
   fs.appendFileSync('document-image.jpg', Buffer.from(documentImage));
+
+  const docImageQuality = response.imageQualityChecks();
 
   console.log("-----------------------------------------------------------------")
   console.log(`           Document Overall Status: ${docOverallStatus}`)

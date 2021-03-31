@@ -13,25 +13,27 @@
  */
 
 
-import { AuthenticityResult } from './authenticity-result';
-import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocumentImageResult } from './document-image-result';
-import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
-import { GraphicsResult } from './graphics-result';
-import { ImageQualityResult } from './image-quality-result';
-import { ImagesResult } from './images-result';
-import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { ResultItem } from './result-item';
-import { StatusResult } from './status-result';
-import { Text } from './text';
-import { TextDataResult } from './text-data-result';
-import { TextResultAllOf } from './text-result-all-of';
+import { PointArray } from './point-array';
+import { RectangleCoordinates } from './rectangle-coordinates';
 
 /**
- * @type TextResult
+ * 
  * @export
+ * @interface AreaArray
  */
-export type TextResult = ResultItem & TextResultAllOf;
-
+export interface AreaArray {
+    /**
+     * 
+     * @type {Array<RectangleCoordinates>}
+     * @memberof AreaArray
+     */
+    List?: Array<RectangleCoordinates>;
+    /**
+     * 
+     * @type {PointArray}
+     * @memberof AreaArray
+     */
+    Points?: PointArray;
+}
 
 
