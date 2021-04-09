@@ -2299,7 +2299,19 @@ export enum TextFieldType {
     /**
     * Restrictions for CA driver’s license
     */
-    DL_CLASS_CODE_CA_NOTES = 624
+    DL_CLASS_CODE_CA_NOTES = 624,
+    /**
+    * Citizenship Status
+    */
+    CITIZENSHIP_STATUS = 625,
+    /**
+    * Military Service From
+    */
+    MILITARY_SERVICE_FROM = 626,
+    /**
+    * Military Service To
+    */
+    MILITARY_SERVICE_TO = 627
 }
 
 
