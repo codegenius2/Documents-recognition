@@ -30,10 +30,10 @@ export interface AreaArray {
     List?: Array<RectangleCoordinates>;
     /**
      * 
-     * @type {PointArray}
+     * @type {Array<PointArray>}
      * @memberof AreaArray
      */
-    Points?: PointArray;
+    Points?: Array<PointArray>;
 }
 
 
