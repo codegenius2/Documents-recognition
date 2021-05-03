@@ -23,6 +23,8 @@ const {DOCUMENT_NUMBER} = TextFieldType;
   const api = new DocumentReaderApi({basePath: apiBasePath});
   api.setLicense(license)
 
+  const serverInfo = await api.ping()
+
   const white_page_0 = fs.readFileSync('WHITE.jpg').buffer
   const ir_page_0 = fs.readFileSync('IR.jpg').buffer
   const uv_page_0 = fs.readFileSync('UV.jpg').buffer
@@ -42,13 +44,13 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     processParam: {
       scenario: Scenario.FULL_AUTH,
       resultTypeOutput: [
-          // actual results
-          Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-          Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
-          // legacy results
-          Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
-          Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-          Result.LEXICAL_ANALYSIS
+        // actual results
+        Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+        Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
+        // legacy results
+        Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+        Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+        Result.LEXICAL_ANALYSIS
       ]
     }
   })
@@ -83,6 +85,8 @@ const {DOCUMENT_NUMBER} = TextFieldType;
 
   const docImageQuality = response.imageQualityChecks();
 
+  console.log("-----------------------------------------------------------------")
+  console.log(`            Web API version: ${serverInfo.version}`)
   console.log("-----------------------------------------------------------------")
   console.log(`           Document Overall Status: ${docOverallStatus}`)
   console.log(`            Document Number Visual: ${docNumberVisual}`)

@@ -1,6 +1,13 @@
 import {DefaultApi} from "../api/default-api.js";
 import {ProcessApi} from "../api/process-api.js";
-import {Light, ProcessRequest as ProcessRequestBase, Scenario, Result} from "../models/index.js";
+import {
+  Light,
+  ProcessRequest as ProcessRequestBase,
+  Scenario,
+  Result,
+  ProcessResponse,
+  DeviceInfo
+} from "../models/index.js";
 import {Response} from "./process-response.js";
 import {Configuration} from "../configuration.js";
 import globalAxios, {AxiosInstance} from "axios";
@@ -25,10 +32,15 @@ export class DocumentReaderApi {
     this.processApi = new ProcessApi(configuration, basePath, axios)
   }
 
+  ping(): Promise<DeviceInfo> {
+    return this.defaultApi.ping()
+      .then((axiosResult) => axiosResult.data);
+  }
+
   /**
    *
    * @summary Process list of documents images and return extracted data
-   * @param {ProcessRequest} [processRequest] Request options such as image, results types and etc.
+   * @param {ProcessRequest} [request] Request options such as image, results types and etc.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError} If some request params are missed
    * */
