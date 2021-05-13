@@ -13,7 +13,9 @@
  */
 
 
+import { DocumentFormat } from './document-format';
 import { ImageQA } from './image-qa';
+import { LogLevel } from './log-level';
 import { MeasureSystem } from './measure-system';
 import { Result } from './result';
 import { Scenario } from './scenario';
@@ -133,6 +135,36 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     imageQA?: ImageQA;
+    /**
+     * 
+     * @type {DocumentFormat}
+     * @memberof ProcessParams
+     */
+    forceDocFormat?: DocumentFormat;
+    /**
+     * When enabled no graphic fields will be cropped from document image.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    noGraphics?: boolean;
+    /**
+     * Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.
+     * @type {number}
+     * @memberof ProcessParams
+     */
+    documentAreaMin?: number;
+    /**
+     * 
+     * @type {LogLevel}
+     * @memberof ProcessParams
+     */
+    logLevel?: LogLevel;
+    /**
+     * When enabled all personal data will be forcibly removed from the logs.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    depersonalizeLog?: boolean;
 }
 
 

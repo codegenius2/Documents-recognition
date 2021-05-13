@@ -57,6 +57,7 @@ export * from './lexical-analysis-result.js';
 export * from './lexical-analysis-result-all-of.js';
 export * from './light.js';
 export * from './list-verified-fields.js';
+export * from './log-level.js';
 export * from './measure-system.js';
 export * from './ocrsecurity-text-result.js';
 export * from './ocrsecurity-text-result-all-of.js';

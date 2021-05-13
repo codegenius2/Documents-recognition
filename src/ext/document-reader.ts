@@ -5,7 +5,7 @@ import {
   ProcessRequest as ProcessRequestBase,
   Scenario,
   Result,
-  ProcessResponse,
+  
   DeviceInfo
 } from "../models/index.js";
 import {Response} from "./process-response.js";
