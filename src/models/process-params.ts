@@ -46,6 +46,12 @@ export interface ProcessParams {
      */
     doublePageSpread?: boolean;
     /**
+     * When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    generateDoublePageSpreadImage?: boolean;
+    /**
      * List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty.
      * @type {Array<TextFieldType>}
      * @memberof ProcessParams
@@ -88,6 +94,12 @@ export interface ProcessParams {
      */
     log?: boolean;
     /**
+     * 
+     * @type {LogLevel}
+     * @memberof ProcessParams
+     */
+    logLevel?: LogLevel;
+    /**
      * Force use of specific template ID and skip document type identification step.
      * @type {number}
      * @memberof ProcessParams
@@ -111,12 +123,6 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     updateOCRValidityByGlare?: boolean;
-    /**
-     * When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.
-     * @type {boolean}
-     * @memberof ProcessParams
-     */
-    generateDoublePageSpreadImage?: boolean;
     /**
      * When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \"error\" in validity status.
      * @type {boolean}
@@ -154,17 +160,35 @@ export interface ProcessParams {
      */
     documentAreaMin?: number;
     /**
-     * 
-     * @type {LogLevel}
-     * @memberof ProcessParams
-     */
-    logLevel?: LogLevel;
-    /**
      * When enabled all personal data will be forcibly removed from the logs.
      * @type {boolean}
      * @memberof ProcessParams
      */
     depersonalizeLog?: boolean;
+    /**
+     * This option allows locating and cropping multiple documents from one image if enabled.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    multiDocOnImage?: boolean;
+    /**
+     * This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.
+     * @type {number}
+     * @memberof ProcessParams
+     */
+    shiftExpiryDate?: number;
+    /**
+     * This options allows specifying the minimal age in years of the document holder for the document to be considered valid.
+     * @type {number}
+     * @memberof ProcessParams
+     */
+    minimalHolderAge?: number;
+    /**
+     * This option allows returning input images in output if enabled.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    returnUncroppedImage?: boolean;
 }
 
 
