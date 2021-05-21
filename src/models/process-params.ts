@@ -16,6 +16,7 @@
 import { DocumentFormat } from './document-format';
 import { ImageQA } from './image-qa';
 import { LogLevel } from './log-level';
+import { MRZFormat } from './mrzformat';
 import { MeasureSystem } from './measure-system';
 import { Result } from './result';
 import { Scenario } from './scenario';
@@ -189,6 +190,12 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     returnUncroppedImage?: boolean;
+    /**
+     * This option allows limiting MRZ formats to be recognized by specifying them in array.
+     * @type {Array<MRZFormat>}
+     * @memberof ProcessParams
+     */
+    mrzFormatsFilter?: Array<MRZFormat>;
 }
 
 

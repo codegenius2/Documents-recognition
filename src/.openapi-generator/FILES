@@ -64,6 +64,7 @@ models/light.ts
 models/list-verified-fields.ts
 models/log-level.ts
 models/measure-system.ts
+models/mrzformat.ts
 models/ocrsecurity-text-result-all-of.ts
 models/ocrsecurity-text-result.ts
 models/one-candidate.ts
