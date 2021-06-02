@@ -19,7 +19,7 @@ import {Images} from "./images.js";
 // @ts-ignore
 import converter from "base64-arraybuffer";
 import {Authenticity} from "./authenticity/authenticity.js";
-
+import pako from 'pako'
 
 export class Response {
 
@@ -74,12 +74,21 @@ export class Response {
     if (log) {
       const decoded = converter.decode(log)
       const uintArray = new Uint8Array(decoded)
-      const uintArraySize = uintArray.length
+
+      let dataUintArray
+      try {
+        dataUintArray = pako.inflate(uintArray);
+      } catch (err) {
+        console.log(err);
+        dataUintArray = uintArray
+      }
+
+      const uintArraySize = dataUintArray.length
       const step = 10000
       const result = []
       // To avoid maximum call stack size excess
       for (let i = 0; i < uintArraySize; i += step) {
-        const chunk = String.fromCharCode.apply(null, uintArray.slice(i, i + step))
+        const chunk = String.fromCharCode.apply(null, dataUintArray.slice(i, i + step))
         result.push(chunk)
       }
       return result.join('')
