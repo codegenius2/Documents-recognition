@@ -77,9 +77,15 @@ export class Response {
 
       let dataUintArray
       try {
-        dataUintArray = pako.inflate(uintArray);
+        const currentDataUintArray = pako.inflate(uintArray)
+        
+        dataUintArray =
+        currentDataUintArray.length > uintArray.length
+          ? currentDataUintArray
+          : uintArray
+
       } catch (err) {
-        console.log(err);
+        console.log(err)
         dataUintArray = uintArray
       }
 
