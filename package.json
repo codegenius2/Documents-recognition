@@ -31,12 +31,12 @@
     "build": "npm run clean && npm run format && npm run build-cjs && npm run build-esm && echo '{\"type\": \"commonjs\"}' > ./dist/cjs-es5/package.json"
   },
   "dependencies": {
-    "@types/pako": "^1.0.1",
     "axios": "^0.21.1",
     "base64-arraybuffer": "^0.2.0",
     "pako": "^2.0.3"
   },
   "devDependencies": {
+    "@types/pako": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "eslint": "^7.4.0",

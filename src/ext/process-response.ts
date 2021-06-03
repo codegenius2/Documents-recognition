@@ -57,7 +57,7 @@ export class Response {
 
   public authenticityPerPage(): Array<Authenticity> {
     return this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
-      .map((e: AuthenticityResult, i) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
+      .map((e: AuthenticityResult) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
       .sort((a, b) => a.page_idx - b.page_idx)
   }
 
@@ -85,7 +85,6 @@ export class Response {
           : uintArray
 
       } catch (err) {
-        console.log(err)
         dataUintArray = uintArray
       }
 
