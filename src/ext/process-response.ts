@@ -19,7 +19,7 @@ import {Images} from "./images.js";
 // @ts-ignore
 import converter from "base64-arraybuffer";
 import {Authenticity} from "./authenticity/authenticity.js";
-
+import pako from 'pako'
 
 export class Response {
 
@@ -57,7 +57,7 @@ export class Response {
 
   public authenticityPerPage(): Array<Authenticity> {
     return this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
-      .map((e: AuthenticityResult, i) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
+      .map((e: AuthenticityResult) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
       .sort((a, b) => a.page_idx - b.page_idx)
   }
 
@@ -74,12 +74,26 @@ export class Response {
     if (log) {
       const decoded = converter.decode(log)
       const uintArray = new Uint8Array(decoded)
-      const uintArraySize = uintArray.length
+
+      let dataUintArray
+      try {
+        const currentDataUintArray = pako.inflate(uintArray)
+        
+        dataUintArray =
+        currentDataUintArray.length > uintArray.length
+          ? currentDataUintArray
+          : uintArray
+
+      } catch (err) {
+        dataUintArray = uintArray
+      }
+
+      const uintArraySize = dataUintArray.length
       const step = 10000
       const result = []
       // To avoid maximum call stack size excess
       for (let i = 0; i < uintArraySize; i += step) {
-        const chunk = String.fromCharCode.apply(null, uintArray.slice(i, i + step))
+        const chunk = String.fromCharCode.apply(null, dataUintArray.slice(i, i + step))
         result.push(chunk)
       }
       return result.join('')
