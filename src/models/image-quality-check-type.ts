@@ -43,7 +43,15 @@ export enum ImageQualityCheckType {
     /**
     * Signals if document is not fully present in the image
     */
-    Bounds = 5
+    Bounds = 5,
+    /**
+    * Signals if an image is captured from screen
+    */
+    ScreenCapture = 6,
+    /**
+    * Signals if the portrait is present
+    */
+    Portrait = 7
 }
 
 
