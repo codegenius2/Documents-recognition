@@ -31,11 +31,13 @@ export class Response {
   images?: Images
 
   lowLvlResponse: LowLvlResponse
+  rawResponse: ProcessResponse
 
   constructor(original: ProcessResponse) {
 
     const lowLvlResponse = new LowLvlResponse(original)
     this.lowLvlResponse = lowLvlResponse
+    this.rawResponse = original
 
     this.status = lowLvlResponse.statusResult()?.Status
     const textResult = lowLvlResponse.textResult()
@@ -111,6 +113,7 @@ export class LowLvlResponse implements ProcessResponse {
   ChipPage: RfidLocation
   log?: string
   passBackObject?: { [key: string]: any; };
+  morePagesAvailable?: number;
 
   constructor(original: ProcessResponse) {
     this.ContainerList = original.ContainerList
@@ -119,6 +122,7 @@ export class LowLvlResponse implements ProcessResponse {
     this.ChipPage = original.ChipPage
     this.log = original.log
     this.passBackObject = original.passBackObject
+    this.morePagesAvailable = original.morePagesAvailable
   }
 
   public statusResult(): StatusResult | undefined {
