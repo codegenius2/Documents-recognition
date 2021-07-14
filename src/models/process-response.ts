@@ -60,6 +60,12 @@ export interface ProcessResponse {
      * @memberof ProcessResponse
      */
     passBackObject?: { [key: string]: object; };
+    /**
+     * 
+     * @type {number}
+     * @memberof ProcessResponse
+     */
+    morePagesAvailable?: number;
 }
 
 
