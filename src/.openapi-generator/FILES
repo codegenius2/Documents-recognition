@@ -69,6 +69,7 @@ models/ocrsecurity-text-result-all-of.ts
 models/ocrsecurity-text-result.ts
 models/one-candidate.ts
 models/original-symbol.ts
+models/per-document-config.ts
 models/photo-ident-result-all-of.ts
 models/photo-ident-result.ts
 models/point-array.ts

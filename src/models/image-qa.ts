@@ -32,6 +32,30 @@ export interface ImageQA {
      * @memberof ImageQA
      */
     angleThreshold?: number;
+    /**
+     * This option disabled focus check during performing image quality validation
+     * @type {boolean}
+     * @memberof ImageQA
+     */
+    disableFocusCheck?: boolean;
+    /**
+     * This option disabled glares check during performing image quality validation
+     * @type {boolean}
+     * @memberof ImageQA
+     */
+    disableGlaresCheck?: boolean;
+    /**
+     * This option disabled colorness check during performing image quality validation
+     * @type {boolean}
+     * @memberof ImageQA
+     */
+    disableColornessCheck?: boolean;
+    /**
+     * This option disabled moire patterns check during performing image quality validation
+     * @type {boolean}
+     * @memberof ImageQA
+     */
+    disableMoireCheck?: boolean;
 }
 
 

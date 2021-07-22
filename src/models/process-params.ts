@@ -18,6 +18,7 @@ import { ImageQA } from './image-qa';
 import { LogLevel } from './log-level';
 import { MRZFormat } from './mrzformat';
 import { MeasureSystem } from './measure-system';
+import { PerDocumentConfig } from './per-document-config';
 import { Result } from './result';
 import { Scenario } from './scenario';
 import { TextFieldType } from './text-field-type';
@@ -88,6 +89,12 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     customParams?: { [key: string]: object; };
+    /**
+     * This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.
+     * @type {Array<PerDocumentConfig>}
+     * @memberof ProcessParams
+     */
+    config?: Array<PerDocumentConfig>;
     /**
      * This option can be set to true if you need to get base64 string of transaction processing log.
      * @type {boolean}
@@ -196,6 +203,12 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     mrzFormatsFilter?: Array<MRZFormat>;
+    /**
+     * This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    forceReadMrzBeforeLocate?: boolean;
 }
 
 

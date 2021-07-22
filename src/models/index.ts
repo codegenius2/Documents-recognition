@@ -64,6 +64,7 @@ export * from './ocrsecurity-text-result.js';
 export * from './ocrsecurity-text-result-all-of.js';
 export * from './one-candidate.js';
 export * from './original-symbol.js';
+export * from './per-document-config.js';
 export * from './photo-ident-result.js';
 export * from './photo-ident-result-all-of.js';
 export * from './point.js';
