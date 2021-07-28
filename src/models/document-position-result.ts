@@ -16,7 +16,8 @@
 import { AuthenticityResult } from './authenticity-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentImageResult } from './document-image-result';
-import { DocumentPositionResult } from './document-position-result';
+import { DocumentPosition } from './document-position';
+import { DocumentPositionResultAllOf } from './document-position-result-all-of';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
@@ -24,15 +25,15 @@ import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
-import { Text } from './text';
 import { TextDataResult } from './text-data-result';
-import { TextResultAllOf } from './text-result-all-of';
+import { TextResult } from './text-result';
 
 /**
- * @type TextResult
+ * @type DocumentPositionResult
+ * Contains information about document position on the input image, its center, angle, etc
  * @export
  */
-export type TextResult = ResultItem & TextResultAllOf;
+export type DocumentPositionResult = DocumentPositionResultAllOf & ResultItem;
 
 
 

@@ -27,6 +27,9 @@ models/document-format.ts
 models/document-image-result-all-of.ts
 models/document-image-result.ts
 models/document-image.ts
+models/document-position-result-all-of.ts
+models/document-position-result.ts
+models/document-position.ts
 models/document-type-recognition-result.ts
 models/document-type.ts
 models/document-types-candidates-list.ts

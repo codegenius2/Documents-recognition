@@ -13,26 +13,20 @@
  */
 
 
-import { Source } from './source';
+import { DocumentPosition } from './document-position';
 
 /**
  * 
  * @export
- * @interface ImagesAvailableSource
+ * @interface DocumentPositionResultAllOf
  */
-export interface ImagesAvailableSource {
-    /**
-     * Same as Result type, but used for safe parsing of not-described values. See Result type.
-     * @type {number}
-     * @memberof ImagesAvailableSource
-     */
-    containerType?: number;
+export interface DocumentPositionResultAllOf {
     /**
      * 
-     * @type {Source}
-     * @memberof ImagesAvailableSource
+     * @type {DocumentPosition}
+     * @memberof DocumentPositionResultAllOf
      */
-    source: Source;
+    DocumentPosition?: DocumentPosition;
 }
 
 

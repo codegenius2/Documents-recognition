@@ -13,62 +13,75 @@
  */
 
 
-import { CheckResult } from './check-result';
+import { DocumentFormat } from './document-format';
+import { Point } from './point';
 
 /**
  * 
  * @export
- * @interface DetailsOptical
+ * @interface DocumentPosition
  */
-export interface DetailsOptical {
+export interface DocumentPosition {
     /**
      * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
+     * @type {DocumentFormat}
+     * @memberof DocumentPosition
      */
-    overallStatus: CheckResult;
+    docFormat?: DocumentFormat;
     /**
      * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
-     */
-    docType: CheckResult;
-    /**
-     * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
-     */
-    expiry: CheckResult;
-    /**
-     * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
-     */
-    imageQA: CheckResult;
-    /**
-     * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
-     */
-    mrz: CheckResult;
-    /**
-     * Number of processed pages in the document
      * @type {number}
-     * @memberof DetailsOptical
+     * @memberof DocumentPosition
      */
-    pagesCount: number;
+    Angle?: number;
     /**
      * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
+     * @type {number}
+     * @memberof DocumentPosition
      */
-    security: CheckResult;
+    Width?: number;
     /**
      * 
-     * @type {CheckResult}
-     * @memberof DetailsOptical
+     * @type {number}
+     * @memberof DocumentPosition
      */
-    text: CheckResult;
+    Height?: number;
+    /**
+     * 
+     * @type {Point}
+     * @memberof DocumentPosition
+     */
+    Center?: Point;
+    /**
+     * 
+     * @type {Point}
+     * @memberof DocumentPosition
+     */
+    LeftBottom?: Point;
+    /**
+     * 
+     * @type {Point}
+     * @memberof DocumentPosition
+     */
+    LeftTop?: Point;
+    /**
+     * 
+     * @type {Point}
+     * @memberof DocumentPosition
+     */
+    RightBottom?: Point;
+    /**
+     * 
+     * @type {Point}
+     * @memberof DocumentPosition
+     */
+    RightTop?: Point;
+    /**
+     * 
+     * @type {number}
+     * @memberof DocumentPosition
+     */
+    Dpi?: number;
 }
 
 
