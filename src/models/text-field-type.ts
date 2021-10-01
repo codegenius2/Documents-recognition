@@ -2315,7 +2315,63 @@ export enum TextFieldType {
     /**
     * Military Service To
     */
-    MILITARY_SERVICE_TO = 627
+    MILITARY_SERVICE_TO = 627,
+    /**
+    * Validity date of NT driver’s license
+    */
+    DL_CLASS_CODE_NT_FROM = 628,
+    /**
+    * Expiration date of NT driver’s license
+    */
+    DL_CLASS_CODE_NT_TO = 629,
+    /**
+    * Restrictions for NT driver’s license
+    */
+    DL_CLASS_CODE_NT_NOTES = 630,
+    /**
+    * Validity date of TN driver’s license
+    */
+    DL_CLASS_CODE_TN_FROM = 631,
+    /**
+    * Expiration date of TN driver’s license
+    */
+    DL_CLASS_CODE_TN_TO = 632,
+    /**
+    * Restrictions for TN driver’s license
+    */
+    DL_CLASS_CODE_TN_NOTES = 633,
+    /**
+    * Validity date of D3 driver’s license
+    */
+    DL_CLASS_CODE_D3_FROM = 634,
+    /**
+    * Expiration date of D3 driver’s license
+    */
+    DL_CLASS_CODE_D3_TO = 635,
+    /**
+    * Restrictions for D3 driver’s license
+    */
+    DL_CLASS_CODE_D3_NOTES = 636,
+    /**
+    * Alt Date of expire
+    */
+    ALT_DATE_OF_EXPIRE = 637,
+    /**
+    * Validity date of CD driver’s license
+    */
+    DL_CLASS_CODE_CD_FROM = 638,
+    /**
+    * Expiration date of CD driver’s license
+    */
+    DL_CLASS_CODE_CD_TO = 639,
+    /**
+    * Restrictions for CD driver’s license
+    */
+    DL_CLASS_CODE_CD_NOTES = 640,
+    /**
+    * Issuer identification number
+    */
+    ISSUER_IDENTIFICATION_NUMBER = 641
 }
 
 

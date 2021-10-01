@@ -209,6 +209,12 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     forceReadMrzBeforeLocate?: boolean;
+    /**
+     * This option can be set to false to stop parsing after barcode is read.
+     * @type {boolean}
+     * @memberof ProcessParams
+     */
+    parseBarcodes?: boolean;
 }
 
 
