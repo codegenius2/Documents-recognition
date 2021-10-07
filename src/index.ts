@@ -103,6 +103,7 @@ export * from './models/text-field-type.js';
 export * from './models/text-field-value.js';
 export * from './models/text-result.js';
 export * from './models/text-result-all-of.js';
+export * from './models/text-post-processing.js';
 export * from './models/transaction-info.js';
 export * from './models/verification-result.js';
 export * from './models/verified-field-map.js';
