@@ -108,6 +108,7 @@ models/text-data-result.ts
 models/text-field-type.ts
 models/text-field-value.ts
 models/text-field.ts
+models/text-post-processing.ts
 models/text-result-all-of.ts
 models/text-result.ts
 models/text.ts

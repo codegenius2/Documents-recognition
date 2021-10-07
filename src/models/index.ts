@@ -104,6 +104,7 @@ export * from './text-data-result-all-of.js';
 export * from './text-field.js';
 export * from './text-field-type.js';
 export * from './text-field-value.js';
+export * from './text-post-processing.js';
 export * from './text-result.js';
 export * from './text-result-all-of.js';
 export * from './transaction-info.js';

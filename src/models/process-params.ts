@@ -22,6 +22,7 @@ import { PerDocumentConfig } from './per-document-config';
 import { Result } from './result';
 import { Scenario } from './scenario';
 import { TextFieldType } from './text-field-type';
+import { TextPostProcessing } from './text-post-processing';
 
 /**
  * 
@@ -215,6 +216,12 @@ export interface ProcessParams {
      * @memberof ProcessParams
      */
     parseBarcodes?: boolean;
+    /**
+     * 
+     * @type {TextPostProcessing}
+     * @memberof ProcessParams
+     */
+    convertCase?: TextPostProcessing;
 }
 
 
