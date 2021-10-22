@@ -30,7 +30,7 @@ import { TextResult } from './text-result';
 
 /**
  * @type LexicalAnalysisResult
- * Lexical data analysis allows you to compare the results of reading the text data of the MRZ, the document filling area, barcodes and data from the memory of the RFID chip for an additional assessment of the authenticity of the document. Single result for all pages. Deprecated since 5.2. Instead consider to use Result.TEXT type. 
+ * Lexical data analysis allows you to compare the results of reading the text data of the MRZ, the document filling area, barcodes and data from the memory of the RFID chip for an additional assessment of the authenticity of the document. Single result for all pages. Consider using Result.TEXT type for more simplicity. 
  * @export
  */
 export type LexicalAnalysisResult = LexicalAnalysisResultAllOf & ResultItem;
