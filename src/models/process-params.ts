@@ -149,7 +149,7 @@ export interface ProcessParams {
      * @type {ImageQA}
      * @memberof ProcessParams
      */
-    imageQA?: ImageQA;
+    imageQa?: ImageQA;
     /**
      * 
      * @type {DocumentFormat}
