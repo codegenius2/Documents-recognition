@@ -19,7 +19,7 @@ import {Images} from "./images.js";
 // @ts-ignore
 import converter from "base64-arraybuffer";
 import {Authenticity} from "./authenticity/authenticity.js";
-import pako from 'pako'
+import * as pako from 'pako'
 
 export class Response {
 
@@ -58,15 +58,16 @@ export class Response {
   }
 
   public authenticityPerPage(): Array<Authenticity> {
-    return this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
-      .map((e: AuthenticityResult) => new Authenticity(e.AuthenticityCheckList, e.page_idx))
+    const filteredByTypeArray = <Array<AuthenticityResult>>this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
+
+    return filteredByTypeArray
+      .map((e: AuthenticityResult) => new Authenticity(e.AuthenticityCheckList, e.page_idx || 0))
       .sort((a, b) => a.page_idx - b.page_idx)
   }
 
   public imageQualityChecks(page_idx = 0): ImageQualityCheckList | undefined {
     const result = <ImageQualityResult>this.lowLvlResponse.resultByTypeAndPage(Result.IMAGE_QUALITY, page_idx)
-    if(result)
-    {
+    if (result) {
       return result.ImageQualityCheckList;
     }
   }
@@ -93,9 +94,10 @@ export class Response {
       const uintArraySize = dataUintArray.length
       const step = 10000
       const result = []
+      const convertedUnitArray = [].slice.call(dataUintArray)
       // To avoid maximum call stack size excess
       for (let i = 0; i < uintArraySize; i += step) {
-        const chunk = String.fromCharCode.apply(null, dataUintArray.slice(i, i + step))
+        const chunk = String.fromCharCode.apply(null, convertedUnitArray.slice(i, i + step))
         result.push(chunk)
       }
       return result.join('')
@@ -110,7 +112,7 @@ export class LowLvlResponse implements ProcessResponse {
   ContainerList: ContainerList
   ProcessingFinished: ProcessingStatus
   TransactionInfo: TransactionInfo
-  ChipPage: RfidLocation
+  ChipPage?: RfidLocation
   log?: string
   passBackObject?: { [key: string]: any; };
   morePagesAvailable?: number;
@@ -155,7 +157,7 @@ export class LowLvlResponse implements ProcessResponse {
     return undefined
   }
 
-  public resultsByType(type: Result): Array<ResultItem> {
+  public resultsByType(type: Result): Array<ResultItem | AuthenticityResult> {
     return this.ContainerList.List.filter(container => container.result_type === type)
   }
 }
