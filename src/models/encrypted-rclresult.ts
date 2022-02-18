@@ -15,11 +15,11 @@
 
 import { AuthenticityResult } from './authenticity-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
-import { DocVisualExtendedInfo } from './doc-visual-extended-info';
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { EncryptedRCLResult } from './encrypted-rclresult';
+import { EncryptedRCLResultAllOf } from './encrypted-rclresult-all-of';
 import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
@@ -27,15 +27,14 @@ import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { LicenseResult } from './license-result';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
-import { TextDataResultAllOf } from './text-data-result-all-of';
+import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
 
 /**
- * @type TextDataResult
- * Text fields extracted from one document source. Contains results of specific source for each provided page.
+ * @type EncryptedRCLResult
  * @export
  */
-export type TextDataResult = ResultItem & TextDataResultAllOf;
+export type EncryptedRCLResult = EncryptedRCLResultAllOf & ResultItem;
 
 
 

@@ -36,6 +36,8 @@ models/document-types-candidates-list.ts
 models/document-types-candidates-result-all-of.ts
 models/document-types-candidates-result.ts
 models/document-types-candidates.ts
+models/encrypted-rclresult-all-of.ts
+models/encrypted-rclresult.ts
 models/fdsidlist.ts
 models/fiber-result-all-of.ts
 models/fiber-result.ts
@@ -63,6 +65,8 @@ models/index.ts
 models/lcid.ts
 models/lexical-analysis-result-all-of.ts
 models/lexical-analysis-result.ts
+models/license-result-all-of.ts
+models/license-result.ts
 models/light.ts
 models/list-verified-fields.ts
 models/log-level.ts

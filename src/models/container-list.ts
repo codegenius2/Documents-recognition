@@ -18,10 +18,12 @@ import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
+import { EncryptedRCLResult } from './encrypted-rclresult';
 import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
+import { LicenseResult } from './license-result';
 import { StatusResult } from './status-result';
 import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
@@ -33,11 +35,17 @@ import { TextResult } from './text-result';
  */
 export interface ContainerList {
     /**
-     * 
-     * @type {Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult>}
+     * Length of list (Count for items)
+     * @type {number}
      * @memberof ContainerList
      */
-    List: Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult>;
+    Count?: number;
+    /**
+     * 
+     * @type {Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | LicenseResult | EncryptedRCLResult>}
+     * @memberof ContainerList
+     */
+    List: Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | LicenseResult | EncryptedRCLResult>;
 }
 
 

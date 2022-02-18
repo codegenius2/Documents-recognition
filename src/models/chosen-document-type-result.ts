@@ -18,10 +18,12 @@ import { ChosenDocumentTypeResultAllOf } from './chosen-document-type-result-all
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
+import { EncryptedRCLResult } from './encrypted-rclresult';
 import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
+import { LicenseResult } from './license-result';
 import { OneCandidate } from './one-candidate';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';

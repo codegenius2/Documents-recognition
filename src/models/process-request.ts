@@ -13,6 +13,7 @@
  */
 
 
+import { ContainerList } from './container-list';
 import { ProcessParams } from './process-params';
 import { ProcessRequestImage } from './process-request-image';
 import { ProcessSystemInfo } from './process-system-info';
@@ -34,7 +35,13 @@ export interface ProcessRequest {
      * @type {Array<ProcessRequestImage>}
      * @memberof ProcessRequest
      */
-    List: Array<ProcessRequestImage>;
+    List?: Array<ProcessRequestImage>;
+    /**
+     * 
+     * @type {ContainerList}
+     * @memberof ProcessRequest
+     */
+    ContainerList?: ContainerList;
     /**
      * 
      * @type {ProcessSystemInfo}
