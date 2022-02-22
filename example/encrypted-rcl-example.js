@@ -25,27 +25,23 @@ const {DOCUMENT_NUMBER} = TextFieldType;
 
     const serverInfo = await api.ping()
 
-    const white_page_0 = fs.readFileSync('WHITE.jpg').buffer
-    const ir_page_0 = fs.readFileSync('IR.jpg').buffer
-    const uv_page_0 = fs.readFileSync('UV.jpg').buffer
+    const license_file = fs.readFileSync('license.txt', 'utf8')
+    const encrypted_rcl = fs.readFileSync('encrypted-rcl.txt', 'utf8')
 
     const response = await api.process({
-        containerList: {
-            list: [
-
+        ContainerList: {
+            Count: 2,
+            List: [
+                {License: license_file, light: 0, page_idx: 0, buf_length: 1372, list_idx:0, result_type: 50},
+                {EncryptedRCL: encrypted_rcl, light: 0, page_idx: 0, buf_length: 453276, list_idx:0, result_type: 49}
             ]
         },
         processParam: {
             scenario: Scenario.FULL_AUTH,
-            resultTypeOutput: [
-                // actual results
-                Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-                Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
-                // legacy results
-                Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
-                Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
-                Result.LEXICAL_ANALYSIS
-            ]
+            doublePageSpread: true,
+            measureSystem: 0,
+            dateFormat: "M/d/yyyy",
+            alreadyCropped: true
         }
     })
 
@@ -62,13 +58,6 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     const docNumberMrzValidity = docNumberField.sourceValidity(Source.MRZ)
     const docNumberMrzVisualMatching = docNumberField.crossSourceComparison(Source.MRZ, Source.VISUAL)
 
-    const docAuthenticity = response.authenticity()
-
-    const docIrB900 = docAuthenticity.irB900Checks()
-    const docIrB900BlankChecks = docIrB900.checksByElement(SecurityFeatureType.BLANK)
-
-    const docImagePattern = docAuthenticity.imagePatternChecks()
-    const docImagePatternBlankChecks = docImagePattern.checksByElement(SecurityFeatureType.BLANK)
 
     // images example
     const documentImage = response.images.getField(DOCUMENT_FRONT).getValue()
