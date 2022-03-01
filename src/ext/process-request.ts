@@ -10,7 +10,7 @@ export interface ProcessRequest {
      * @type {ProcessParams}
      * @memberof ProcessRequest
      */
-    processParam?: ProcessParams;
+    processParam: ProcessParams;
 
     /**
      *

@@ -39,7 +39,7 @@ export class ImagesField implements BaseImagesField {
   valueList: Array<ImagesFieldValue>;
 
   constructor(origin: BaseImagesField) {
-    this.fieldType = origin.fieldType
+    this.fieldName = origin.fieldName
     this.fieldType = origin.fieldType
     this.valueList = origin.valueList
   }
@@ -58,7 +58,7 @@ export class ImagesField implements BaseImagesField {
       return undefined
     }
 
-    if (original) {
+    if (original && fieldValue.originalValue) {
       return base64ToBuffer(fieldValue.originalValue)
     }
     return base64ToBuffer(fieldValue.value)

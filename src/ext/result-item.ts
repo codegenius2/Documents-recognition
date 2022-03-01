@@ -3,10 +3,10 @@ import {ResultItem} from "../models/index.js";
 
 export class BaseResultItem implements ResultItem {
 
-    buf_length: number;
-    light: number;
-    list_idx: number;
-    page_idx: number;
+    buf_length?: number;
+    light?: number;
+    list_idx?: number;
+    page_idx?: number;
     result_type: number;
 
     constructor(item: ResultItem) {
