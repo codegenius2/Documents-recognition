@@ -87,7 +87,15 @@ export enum Result {
     /**
     * Contains information about document position on the input image, its center, angle, etc
     */
-    DOCUMENT_POSITION = 85
+    DOCUMENT_POSITION = 85,
+    /**
+    * Contains license
+    */
+    LICENSE = 50,
+    /**
+    * Contains encrypted ResultContainerList
+    */
+    ENCRYPTED_RCL = 49
 }
 
 
