@@ -15,6 +15,7 @@
 
 import { AuthenticityResult } from './authenticity-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
+import { DocBarCodeInfo } from './doc-bar-code-info';
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
@@ -42,10 +43,10 @@ export interface ContainerList {
     Count?: number;
     /**
      * 
-     * @type {Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | LicenseResult | EncryptedRCLResult>}
+     * @type {Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | DocBarCodeInfo | LicenseResult | EncryptedRCLResult>}
      * @memberof ContainerList
      */
-    List: Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | LicenseResult | EncryptedRCLResult>;
+    List: Array<StatusResult | TextResult | DocumentImageResult | ImagesResult | ChosenDocumentTypeResult | DocumentTypesCandidatesResult | TextDataResult | GraphicsResult | LexicalAnalysisResult | AuthenticityResult | ImageQualityResult | DocumentPositionResult | DocBarCodeInfo | LicenseResult | EncryptedRCLResult>;
 }
 
 

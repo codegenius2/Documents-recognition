@@ -16,6 +16,7 @@
 import { AuthenticityCheckList } from './authenticity-check-list';
 import { AuthenticityResultAllOf } from './authenticity-result-all-of';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
+import { DocBarCodeInfo } from './doc-bar-code-info';
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
 import { DocumentTypesCandidatesResult } from './document-types-candidates-result';

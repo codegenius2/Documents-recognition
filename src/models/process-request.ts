@@ -25,6 +25,12 @@ import { ProcessSystemInfo } from './process-system-info';
  */
 export interface ProcessRequest {
     /**
+     * session id
+     * @type {string}
+     * @memberof ProcessRequest
+     */
+    tag?: string;
+    /**
      * 
      * @type {ProcessParams}
      * @memberof ProcessRequest
