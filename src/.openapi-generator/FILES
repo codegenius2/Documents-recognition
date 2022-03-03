@@ -10,6 +10,8 @@ models/authenticity-check-result.ts
 models/authenticity-result-all-of.ts
 models/authenticity-result-type.ts
 models/authenticity-result.ts
+models/bc-pdf417-info.ts
+models/bc-roidetect.ts
 models/check-diagnose.ts
 models/check-result.ts
 models/chosen-document-type-result-all-of.ts
@@ -18,9 +20,12 @@ models/chosen-document-type.ts
 models/container-list.ts
 models/critical.ts
 models/cross-source-value-comparison.ts
+models/data-module.ts
 models/details-optical.ts
 models/details-rfid.ts
 models/device-info.ts
+models/doc-bar-code-info-all-of.ts
+models/doc-bar-code-info.ts
 models/doc-visual-extended-field.ts
 models/doc-visual-extended-info.ts
 models/document-format.ts
@@ -76,6 +81,7 @@ models/ocrsecurity-text-result-all-of.ts
 models/ocrsecurity-text-result.ts
 models/one-candidate.ts
 models/original-symbol.ts
+models/parray-field.ts
 models/per-document-config.ts
 models/photo-ident-result-all-of.ts
 models/photo-ident-result.ts

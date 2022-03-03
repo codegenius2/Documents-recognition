@@ -89,6 +89,10 @@ export enum Result {
     */
     DOCUMENT_POSITION = 85,
     /**
+    * Contains raw information about barcodes on the input image
+    */
+    BARCODES = 5,
+    /**
     * Contains license
     */
     LICENSE = 50,

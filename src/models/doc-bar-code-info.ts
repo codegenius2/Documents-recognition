@@ -16,26 +16,28 @@
 import { AuthenticityResult } from './authenticity-result';
 import { ChosenDocumentTypeResult } from './chosen-document-type-result';
 import { DocBarCodeInfo } from './doc-bar-code-info';
+import { DocBarCodeInfoAllOf } from './doc-bar-code-info-all-of';
 import { DocumentImageResult } from './document-image-result';
 import { DocumentPositionResult } from './document-position-result';
-import { DocumentTypesCandidatesList } from './document-types-candidates-list';
-import { DocumentTypesCandidatesResultAllOf } from './document-types-candidates-result-all-of';
+import { DocumentTypesCandidatesResult } from './document-types-candidates-result';
 import { EncryptedRCLResult } from './encrypted-rclresult';
 import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
 import { LicenseResult } from './license-result';
+import { PArrayField } from './parray-field';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
 import { TextDataResult } from './text-data-result';
 import { TextResult } from './text-result';
 
 /**
- * @type DocumentTypesCandidatesResult
+ * @type DocBarCodeInfo
+ * Raw data from BarCodes
  * @export
  */
-export type DocumentTypesCandidatesResult = DocumentTypesCandidatesResultAllOf & ResultItem;
+export type DocBarCodeInfo = DocBarCodeInfoAllOf & ResultItem;
 
 
 
