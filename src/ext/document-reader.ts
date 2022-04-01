@@ -15,9 +15,7 @@ import {BASE_PATH} from "../base.js";
 import {ProcessRequestImage as ProcessRequestImageBase} from "../models/index.js";
 import {Base64String, instanceOfProcessRequest, ProcessRequest} from "./process-request.js";
 import {ProcessRequestImage} from "./process-request-image.js";
-
-// @ts-ignore
-import converter from "base64-arraybuffer";
+import * as converter from "base64-arraybuffer";
 
 
 export class DocumentReaderApi {

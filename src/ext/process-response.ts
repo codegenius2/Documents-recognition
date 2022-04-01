@@ -16,8 +16,7 @@ import {
 } from "../models/index.js";
 import {Text} from "./text.js";
 import {Images} from "./images.js";
-// @ts-ignore
-import converter from "base64-arraybuffer";
+import * as converter from "base64-arraybuffer";
 import {Authenticity} from "./authenticity/authenticity.js";
 import * as pako from 'pako'
 
