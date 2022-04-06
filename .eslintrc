@@ -5,6 +5,10 @@
     "@typescript-eslint",
     "unused-imports"
   ],
+  "env": {
+    "node": true,
+    "commonjs": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",

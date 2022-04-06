@@ -4,9 +4,7 @@ import {
   ImagesField as BaseImagesField,
   ImagesAvailableSource, ImagesFieldValue, Source
 } from "../models/index.js";
-
-// @ts-ignore
-import converter from "base64-arraybuffer";
+import * as converter from "base64-arraybuffer";
 
 export class Images implements BaseImages {
 
