@@ -12,6 +12,8 @@ import {
   Status,
   StatusResult,
   TextResult,
+  ChosenDocumentTypeResult,
+  DocBarCodeInfo,
   TransactionInfo
 } from "../models/index.js";
 import {Text} from "./text.js";
@@ -136,6 +138,14 @@ export class LowLvlResponse implements ProcessResponse {
 
   public imagesResult(): ImagesResult | undefined {
     return <ImagesResult>this.resultByType(Result.IMAGES)
+  }
+
+  public barcodeResult(): DocBarCodeInfo | undefined {
+    return <DocBarCodeInfo>this.resultByType(Result.BARCODES)
+  }
+
+  public documentTypeResults(): Array<ChosenDocumentTypeResult> | undefined {
+    return <Array<ChosenDocumentTypeResult>>this.resultsByType(Result.DOCUMENT_TYPE)
   }
 
   public resultByType(type: Result): ResultItem | undefined {
