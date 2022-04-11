@@ -169,16 +169,16 @@ export class TextField implements BaseTextField {
   comparisonList: Array<CrossSourceValueComparison>;
 
   constructor(origin: BaseTextField) {
-    this.fieldType = origin.fieldType
-    this.fieldName = origin.fieldName
-    this.lcid = origin.lcid
-    this.status = origin.status
-    this.validityStatus = origin.validityStatus
-    this.comparisonStatus = origin.comparisonStatus
-    this.value = origin.value
-    this.valueList = origin.valueList
-    this.validityList = origin.validityList
-    this.comparisonList = origin.comparisonList
+    this.fieldType = origin.fieldType;
+    this.fieldName = origin.fieldName;
+    this.lcid = origin.lcid;
+    this.status = origin.status;
+    this.validityStatus = origin.validityStatus;
+    this.comparisonStatus = origin.comparisonStatus;
+    this.value = origin.value;
+    this.valueList = origin.valueList;
+    this.validityList = origin.validityList;
+    this.comparisonList = origin.comparisonList;
   }
 
   /**
@@ -203,9 +203,9 @@ export class TextField implements BaseTextField {
 
     const value = this.getValueBySource(source)
     if (original) {
-      return value?.originalValue
+      return value?.originalValue;
     }
-    return value?.value
+    return value?.value;
   }
 
   /**
@@ -215,10 +215,10 @@ export class TextField implements BaseTextField {
   public sourceValidity(source: Source): CheckResult {
     for (const validity of this.validityList) {
       if (validity.source === source) {
-        return validity.status
+        return validity.status;
       }
     }
-    return CheckResult.WAS_NOT_DONE
+    return CheckResult.WAS_NOT_DONE;
   }
 
   /**
@@ -227,22 +227,24 @@ export class TextField implements BaseTextField {
   public crossSourceComparison(one: Source, other: Source): CheckResult {
     for (const c of this.comparisonList) {
       if ((c.sourceLeft === one && c.sourceRight === other) || (c.sourceLeft === other && c.sourceRight === one)) {
-        return c.status
+        return c.status;
       }
     }
-    return CheckResult.WAS_NOT_DONE
+    return CheckResult.WAS_NOT_DONE;
   }
 
   public getLCIDName(): string | undefined {
-    return LCID_MAP[this.lcid] || String(this.lcid);
+    if (this.lcid) {
+      return LCID_MAP[this.lcid] || String(this.lcid);
+    }
   }
 
   private getValueBySource(source: Source): TextFieldValue | undefined {
     for (const value of this.valueList) {
       if (value.source == source) {
-        return value
+        return value;
       }
     }
-    return undefined
+    return undefined;
   }
 }
