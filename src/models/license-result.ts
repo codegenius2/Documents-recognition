@@ -24,7 +24,6 @@ import { GraphicsResult } from './graphics-result';
 import { ImageQualityResult } from './image-quality-result';
 import { ImagesResult } from './images-result';
 import { LexicalAnalysisResult } from './lexical-analysis-result';
-import { LicenseResult } from './license-result';
 import { LicenseResultAllOf } from './license-result-all-of';
 import { ResultItem } from './result-item';
 import { StatusResult } from './status-result';
