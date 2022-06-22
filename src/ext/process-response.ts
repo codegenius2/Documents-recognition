@@ -80,6 +80,12 @@ export class Response {
     }
   }
 
+  public imageQualityChecksPerPage(): Array<ImageQualityCheckList> | undefined {
+    return <Array<ImageQualityCheckList>>(
+      this.lowLvlResponse.resultsByType(Result.IMAGE_QUALITY)
+    );
+  }
+
   public decodedLog(): string | undefined {
     const log = this.lowLvlResponse.log;
     if (log) {
@@ -179,7 +185,9 @@ export class LowLvlResponse implements ProcessResponse {
     return undefined;
   }
 
-  public resultsByType(type: Result): Array<ResultItem | AuthenticityResult> {
+  public resultsByType(
+    type: Result
+  ): Array<ResultItem | AuthenticityResult | ImageQualityCheckList> {
     return this.ContainerList.List.filter(
       (container) => container.result_type === type
     );
