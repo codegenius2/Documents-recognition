@@ -32,10 +32,11 @@ export const ProcessApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Process list of documents images and return extracted data
          * @param {ProcessRequest} processRequest 
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiProcess: async (processRequest: ProcessRequest, options: any = {}): Promise<RequestArgs> => {
+        apiProcess: async (processRequest: ProcessRequest, xRequestID?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'processRequest' is not null or undefined
             if (processRequest === null || processRequest === undefined) {
                 throw new RequiredError('processRequest','Required parameter processRequest was null or undefined when calling apiProcess.');
@@ -51,6 +52,10 @@ export const ProcessApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (xRequestID !== undefined && xRequestID !== null) {
+                localVarHeaderParameter['X-RequestID'] = String(xRequestID);
+            }
 
 
     
@@ -92,11 +97,12 @@ export const ProcessApiFp = function(configuration?: Configuration) {
          * 
          * @summary Process list of documents images and return extracted data
          * @param {ProcessRequest} processRequest 
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiProcess(processRequest: ProcessRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProcessResponse>> {
-            const localVarAxiosArgs = await ProcessApiAxiosParamCreator(configuration).apiProcess(processRequest, options);
+        async apiProcess(processRequest: ProcessRequest, xRequestID?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProcessResponse>> {
+            const localVarAxiosArgs = await ProcessApiAxiosParamCreator(configuration).apiProcess(processRequest, xRequestID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: (configuration?.basePath || basePath) + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -115,11 +121,12 @@ export const ProcessApiFactory = function (configuration?: Configuration, basePa
          * 
          * @summary Process list of documents images and return extracted data
          * @param {ProcessRequest} processRequest 
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiProcess(processRequest: ProcessRequest, options?: any): AxiosPromise<ProcessResponse> {
-            return ProcessApiFp(configuration).apiProcess(processRequest, options).then((request) => request(axios, basePath));
+        apiProcess(processRequest: ProcessRequest, xRequestID?: string, options?: any): AxiosPromise<ProcessResponse> {
+            return ProcessApiFp(configuration).apiProcess(processRequest, xRequestID, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -135,11 +142,12 @@ export class ProcessApi extends BaseAPI {
      * 
      * @summary Process list of documents images and return extracted data
      * @param {ProcessRequest} processRequest 
+     * @param {string} [xRequestID] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProcessApi
      */
-    public apiProcess(processRequest: ProcessRequest, options?: any) {
-        return ProcessApiFp(this.configuration).apiProcess(processRequest, options).then((request) => request(this.axios, this.basePath));
+    public apiProcess(processRequest: ProcessRequest, xRequestID?: string, options?: any) {
+        return ProcessApiFp(this.configuration).apiProcess(processRequest, xRequestID, options).then((request) => request(this.axios, this.basePath));
     }
 }

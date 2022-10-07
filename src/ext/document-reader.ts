@@ -30,8 +30,8 @@ export class DocumentReaderApi {
     this.processApi = new ProcessApi(configuration, basePath, axios)
   }
 
-  ping(): Promise<DeviceInfo> {
-    return this.defaultApi.ping()
+  ping(xRequestID?: string): Promise<DeviceInfo> {
+    return this.defaultApi.ping(xRequestID)
       .then((axiosResult) => axiosResult.data);
   }
 
@@ -42,7 +42,7 @@ export class DocumentReaderApi {
    * @param {*} [options] Override http request option.
    * @throws {RequiredError} If some request params are missed
    * */
-  process(request: ProcessRequest | ProcessRequestBase, options?: any): Promise<Response> {
+  process(request: ProcessRequest | ProcessRequestBase, xRequestID?: string, options?: any): Promise<Response> {
     let baseRequest;
 
     if (instanceOfProcessRequest(request)) {
@@ -65,7 +65,7 @@ export class DocumentReaderApi {
       baseRequest = request
     }
 
-    return this.processApi.apiProcess(baseRequest, options)
+    return this.processApi.apiProcess(baseRequest, xRequestID, options)
       .then((axiosResult) => new Response(axiosResult.data));
   }
 

@@ -29,10 +29,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Server health check
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ping: async (options: any = {}): Promise<RequestArgs> => {
+        ping: async (xRequestID?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/ping`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -44,6 +45,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (xRequestID !== undefined && xRequestID !== null) {
+                localVarHeaderParameter['X-RequestID'] = String(xRequestID);
+            }
 
 
     
@@ -75,11 +80,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Server health check
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ping(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeviceInfo>> {
-            const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).ping(options);
+        async ping(xRequestID?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeviceInfo>> {
+            const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).ping(xRequestID, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: (configuration?.basePath || basePath) + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -97,11 +103,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Server health check
+         * @param {string} [xRequestID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ping(options?: any): AxiosPromise<DeviceInfo> {
-            return DefaultApiFp(configuration).ping(options).then((request) => request(axios, basePath));
+        ping(xRequestID?: string, options?: any): AxiosPromise<DeviceInfo> {
+            return DefaultApiFp(configuration).ping(xRequestID, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -116,11 +123,12 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Server health check
+     * @param {string} [xRequestID] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public ping(options?: any) {
-        return DefaultApiFp(this.configuration).ping(options).then((request) => request(this.axios, this.basePath));
+    public ping(xRequestID?: string, options?: any) {
+        return DefaultApiFp(this.configuration).ping(xRequestID, options).then((request) => request(this.axios, this.basePath));
     }
 }
