@@ -6,3 +6,4 @@ dist
 /example/portrait.jpg
 /example/document-image.jpg
 /example/regula.license
+*.DS_Store
