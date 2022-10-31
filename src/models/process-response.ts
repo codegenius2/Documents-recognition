@@ -66,6 +66,12 @@ export interface ProcessResponse {
      * @memberof ProcessResponse
      */
     morePagesAvailable?: number;
+    /**
+     * Time the document processing has taken, ms.
+     * @type {number}
+     * @memberof ProcessResponse
+     */
+    elapsedTime?: number;
 }
 
 
