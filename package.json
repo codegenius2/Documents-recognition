@@ -1,6 +1,6 @@
 {
   "name": "@regulaforensics/document-reader-webclient",
-  "version": "6.3.0",
+  "version": "6.6.0",
   "description": "Regula Document Reader js client for the browser and node.js based on axios",
   "author": "Regula Forensics, Inc.",
   "keywords": [
