@@ -91,7 +91,7 @@ export enum LCID {
     /**
     * Arabic (U.A.E.)
     */
-    ARABIC_UAE = 4337,
+    ARABIC_UAE = 14337,
     /**
     * Arabic (Yemen)
     */
