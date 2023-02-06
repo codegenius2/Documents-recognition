@@ -262,10 +262,10 @@ export interface ProcessParams {
     documentGroupFilter?: Array<DocumentType>;
     /**
      * 
-     * @type {number}
+     * @type {AuthenticityResultType<object>}
      * @memberof ProcessParams
      */
-    processAuth?: number;
+    processAuth?: AuthenticityResultType;
     /**
      * This parameter is used to specify the document reader device type from which input images were captured. Default 0.
      * @type {number}
