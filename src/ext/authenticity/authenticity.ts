@@ -61,6 +61,10 @@ export class Authenticity implements BaseAuthenticityCheckList {
     return this.securityFeatureOrUndefined(AuthenticityResultType.PHOTO_AREA);
   }
 
+  public mrzChecks(): SecurityFeatureChecks | undefined {
+    return this.securityFeatureOrUndefined(AuthenticityResultType.MRZ);
+  }
+
   public portraitComparisonChecks(): IdentChecks | undefined {
     return this.identOrUndefined(AuthenticityResultType.PORTRAIT_COMPARISON);
   }
