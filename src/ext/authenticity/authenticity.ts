@@ -48,7 +48,6 @@ export class Authenticity implements BaseAuthenticityCheckList {
     return this.imageIdentOrUndefined(AuthenticityResultType.IPI);
   }
 
-
   public embedImageChecks(): SecurityFeatureChecks | undefined {
     return this.securityFeatureOrUndefined(AuthenticityResultType.PHOTO_EMBED_TYPE);
   }
@@ -59,10 +58,6 @@ export class Authenticity implements BaseAuthenticityCheckList {
 
   public imageAreaChecks(): SecurityFeatureChecks | undefined {
     return this.securityFeatureOrUndefined(AuthenticityResultType.PHOTO_AREA);
-  }
-
-  public mrzChecks(): SecurityFeatureChecks | undefined {
-    return this.securityFeatureOrUndefined(AuthenticityResultType.MRZ);
   }
 
   public portraitComparisonChecks(): IdentChecks | undefined {
@@ -79,6 +74,14 @@ export class Authenticity implements BaseAuthenticityCheckList {
 
   public letterScreenChecks(): IdentChecks | undefined {
     return this.identOrUndefined(AuthenticityResultType.LETTER_SCREEN);
+  }
+
+  public hologramDetectionChecks(): IdentChecks | undefined {
+    return this.identOrUndefined(AuthenticityResultType.HOLOGRAM_DETECTION);
+  }
+
+  public mrzChecks(): SecurityFeatureChecks | undefined {
+    return this.securityFeatureOrUndefined(AuthenticityResultType.MRZ);
   }
 
   public resultByType(authenticityType: number): AuthenticityCheckResult | undefined {
