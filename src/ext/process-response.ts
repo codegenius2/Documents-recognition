@@ -14,7 +14,7 @@ import {
   TextResult,
   ChosenDocumentTypeResult,
   DocBarCodeInfo,
-  TransactionInfo
+  TransactionInfo, OneCandidate
 } from "../models/index.js";
 import {Text} from "./text.js";
 import {Images} from "./images.js";
@@ -75,6 +75,13 @@ export class Response {
 
   public imageQualityChecksPerPage(): Array<ImageQualityCheckList> | undefined {
     return <Array<ImageQualityCheckList>>this.lowLvlResponse.resultsByType(Result.IMAGE_QUALITY)
+  }
+
+  public documentType(page_idx = 0): OneCandidate | undefined {
+    const result = <ChosenDocumentTypeResult>this.lowLvlResponse.resultByTypeAndPage(Result.DOCUMENT_TYPE, page_idx)
+    if (result) {
+      return result.OneCandidate;
+    }
   }
 
   public decodedLog(): string | undefined {
