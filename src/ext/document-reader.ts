@@ -35,6 +35,10 @@ export class DocumentReaderApi {
       .then((axiosResult) => axiosResult.data);
   }
 
+  setConfiguration(configuration: Configuration): void {
+    this.processApi.setConfiguration(configuration);
+  }
+
   /**
    *
    * @summary Process list of documents images and return extracted data
