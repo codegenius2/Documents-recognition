@@ -82,12 +82,14 @@ models/ocrsecurity-text-result.ts
 models/one-candidate.ts
 models/original-symbol.ts
 models/parray-field.ts
+models/parsing-notification-codes.ts
 models/per-document-config.ts
 models/photo-ident-result-all-of.ts
 models/photo-ident-result.ts
 models/point-array.ts
 models/point.ts
 models/points-container.ts
+models/process-params-rfid.ts
 models/process-params.ts
 models/process-request-image.ts
 models/process-request.ts
