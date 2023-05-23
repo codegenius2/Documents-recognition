@@ -81,7 +81,7 @@ export class Authenticity implements BaseAuthenticityCheckList {
   }
 
   public mrzChecks(): SecurityFeatureChecks | undefined {
-    return this.securityFeatureOrUndefined(AuthenticityResultType.MRZ);
+    return this.securityFeatureOrUndefined(AuthenticityResultType.EXTENDED_MRZ_CHECK);
   }
 
   public resultByType(authenticityType: number): AuthenticityCheckResult | undefined {

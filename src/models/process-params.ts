@@ -266,7 +266,7 @@ export interface ProcessParams {
      * @type {AuthenticityResultType<object>}
      * @memberof ProcessParams
      */
-    processAuth?: AuthenticityResultType<object>;
+    processAuth?: number;
     /**
      * This parameter is used to specify the document reader device type from which input images were captured. Default 0.
      * @type {number}
