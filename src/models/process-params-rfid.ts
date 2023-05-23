@@ -13,27 +13,20 @@
  */
 
 
-import { PointArray } from './point-array';
-import { RectangleCoordinates } from './rectangle-coordinates';
+import { ParsingNotificationCodes } from './parsing-notification-codes';
 
 /**
- * 
+ * Params for the RFID chip data reprocessing
  * @export
- * @interface AreaArray
+ * @interface ProcessParamsRfid
  */
-export interface AreaArray {
+export interface ProcessParamsRfid {
     /**
-     * 
-     * @type {Array<RectangleCoordinates>}
-     * @memberof AreaArray
+     * A list of notification codes that should be ignored during passive authentication (PA)
+     * @type {Array<ParsingNotificationCodes>}
+     * @memberof ProcessParamsRfid
      */
-    List?: Array<RectangleCoordinates>;
-    /**
-     * 
-     * @type {Array<PointArray>}
-     * @memberof AreaArray
-     */
-    Points?: Array<PointArray>;
+    paSensitiveCodesDisable?: Array<ParsingNotificationCodes>;
 }
 
 
