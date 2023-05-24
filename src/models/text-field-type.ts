@@ -2475,15 +2475,15 @@ export enum TextFieldType {
     /**
     * Year of birth
     */
-    YEAR_OF_EXPIRY = 667,
+    YEAR_OF_BIRTH = 667,
     /**
     * Year of expiry
     */
-    GRANDFATHER_NAME_MATERNAL = 668,
+    YEAR_OF_EXPIRY = 668,
     /**
     * Grandfather mame maternal
     */
-    NUMBER_669 = 669
+    GRANDFATHER_NAME_MATERNAL = 669
 }
 
 
