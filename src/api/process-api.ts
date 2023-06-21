@@ -150,8 +150,4 @@ export class ProcessApi extends BaseAPI {
     public apiProcess(processRequest: ProcessRequest, xRequestID?: string, options?: any) {
         return ProcessApiFp(this.configuration).apiProcess(processRequest, xRequestID, options).then((request) => request(this.axios, this.basePath));
     }
-
-    public setConfiguration(configuration: Configuration): void {
-            this.configuration = configuration;
-    }
 }

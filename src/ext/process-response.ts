@@ -58,6 +58,10 @@ export class Response {
     }
   }
 
+  public json(): string {
+    return JSON.stringify(this.lowLvlResponse);
+  }
+
   public authenticityPerPage(): Array<Authenticity> {
     const filteredByTypeArray = <Array<AuthenticityResult>>this.lowLvlResponse.resultsByType(Result.AUTHENTICITY)
 

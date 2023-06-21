@@ -33,7 +33,7 @@ const {DOCUMENT_NUMBER} = TextFieldType;
     const ir_page_0 = fs.readFileSync('IR.jpg').buffer;
     const uv_page_0 = fs.readFileSync('UV.jpg').buffer;
 
-    const response = await api.process({
+    const request = {
         images: [
             {
                 ImageData: white_page_0, light: Light.WHITE, page_idx: 0
@@ -57,7 +57,12 @@ const {DOCUMENT_NUMBER} = TextFieldType;
                 Result.LEXICAL_ANALYSIS
             ]
         }
-    });
+    }
+
+    const response = await api.process(request);
+
+    const requestJson = JSON.stringify(request);
+    const responseJson = response.json();
 
     const docOverallStatus = response.status.overallStatus;
     const docOpticalTextStatus = response.status.detailsOptical.text;

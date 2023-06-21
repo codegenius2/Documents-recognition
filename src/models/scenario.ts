@@ -28,6 +28,7 @@ export enum Scenario {
     MRZ_OR_BARCODE = 'MrzOrBarcode',
     MRZ_OR_LOCATE = 'MrzOrLocate',
     MRZ_AND_LOCATE = 'MrzAndLocate',
+    BARCODE_AND_LOCATE = 'BarcodeAndLocate',
     MRZ_OR_OCR = 'MrzOrOcr',
     MRZ_OR_BARCODE_OR_OCR = 'MrzOrBarcodeOrOcr',
     LOCATE_VISUAL_AND_MRZ_OR_OCR = 'LocateVisual_And_MrzOrOcr',
