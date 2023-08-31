@@ -40,6 +40,8 @@ export * from './document-types-candidates-result-all-of.js';
 export * from './encrypted-rclresult.js';
 export * from './encrypted-rclresult-all-of.js';
 export * from './fdsidlist.js';
+export * from './face-api.js';
+export * from './face-api-search.js';
 export * from './fiber-result.js';
 export * from './fiber-result-all-of.js';
 export * from './graphic-field.js';

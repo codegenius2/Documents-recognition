@@ -43,6 +43,18 @@ export interface ProcessRequest {
      */
     List?: Array<ProcessRequestImage>;
     /**
+     * Live portrait photo
+     * @type {string}
+     * @memberof ProcessRequest
+     */
+    livePortrait?: string;
+    /**
+     * Portrait photo from an external source
+     * @type {string}
+     * @memberof ProcessRequest
+     */
+    extPortrait?: string;
+    /**
      * 
      * @type {ContainerList}
      * @memberof ProcessRequest
