@@ -22,6 +22,7 @@ export * from './details-rfid.js';
 export * from './device-info.js';
 export * from './doc-bar-code-info.js';
 export * from './doc-bar-code-info-all-of.js';
+export * from './doc-bar-code-info-fields-list.js';
 export * from './doc-visual-extended-field.js';
 export * from './doc-visual-extended-info.js';
 export * from './document-format.js';
