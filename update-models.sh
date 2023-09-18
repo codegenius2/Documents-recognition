@@ -24,6 +24,11 @@ sed -i '/import { ChosenDocumentTypeResult } /d' ./src/models/chosen-document-ty
 sed -i '/import { AuthenticityResult } /d' ./src/models/authenticity-result.ts
 sed -i '/import { ImageQualityResult } /d' ./src/models/image-quality-result.ts
 sed -i '/import { DocumentPositionResult } /d' ./src/models/document-position-result.ts
+sed -i '/import { DocBarCodeInfo } /d' ./src/models/doc-bar-code-info.ts
+sed -i '/import { EncryptedRCLResult } /d' ./src/models/encrypted-rclresult.ts
+sed -i '/import { LicenseResult } /d' ./src/models/license-result.ts
+sed -i 's/processAuth?: AuthenticityResultType<object>;/processAuth?: number;/g' ./src/models/process-params.ts
+
 
 
 sed -i "s+from '../models'+from '../models.js'+g" ./src/api/default-api.ts
