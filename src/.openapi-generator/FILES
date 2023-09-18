@@ -25,6 +25,7 @@ models/details-optical.ts
 models/details-rfid.ts
 models/device-info.ts
 models/doc-bar-code-info-all-of.ts
+models/doc-bar-code-info-fields-list.ts
 models/doc-bar-code-info.ts
 models/doc-visual-extended-field.ts
 models/doc-visual-extended-info.ts

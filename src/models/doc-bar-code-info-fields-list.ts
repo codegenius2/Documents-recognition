@@ -13,20 +13,26 @@
  */
 
 
-import { DocBarCodeInfoFieldsList } from './doc-bar-code-info-fields-list';
+import { PArrayField } from './parray-field';
 
 /**
  * 
  * @export
- * @interface DocBarCodeInfoAllOf
+ * @interface DocBarCodeInfoFieldsList
  */
-export interface DocBarCodeInfoAllOf {
+export interface DocBarCodeInfoFieldsList {
     /**
-     * 
-     * @type {DocBarCodeInfoFieldsList}
-     * @memberof DocBarCodeInfoAllOf
+     * Count of array fields
+     * @type {number}
+     * @memberof DocBarCodeInfoFieldsList
      */
-    DocBarCodeInfo?: DocBarCodeInfoFieldsList;
+    nFields?: number;
+    /**
+     * Data from barcode
+     * @type {Array<PArrayField>}
+     * @memberof DocBarCodeInfoFieldsList
+     */
+    pArrayFields?: Array<PArrayField>;
 }
 
 
